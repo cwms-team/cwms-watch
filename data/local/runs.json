@@ -1,0 +1,15 @@
+[
+ {
+  "source": "local",
+  "at": "2026-11-24T07:55:14.155Z",
+  "trigger": "manual",
+  "durationMs": 30384,
+  "watched": 30,
+  "abnormal": 7,
+  "delayed": 1,
+  "noData": 0,
+  "sourceError": 0,
+  "notify": 1,
+  "discordSent": 1
+ }
+]
