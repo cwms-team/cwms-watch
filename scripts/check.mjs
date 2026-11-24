@@ -144,6 +144,7 @@ async function main() {
       const prev = prevByKey.get(`${reg.key}:${cno}`);
       const c = { region: reg.key, cno, company: names.get(cno) || prev?.company || cno, details: [] };
       try {
+        if (!out.available) throw new Error(`縣市網站無法連線：${out.error}`);
         const { rows } = await withRetry(() => fetchOperatorRows(reg.sourceUrl, cno));
         const now = Date.now();
         if (!rows.length) {
@@ -165,13 +166,13 @@ async function main() {
         c.lastSourceErrorAt = new Date().toISOString();
         // 保留上一次成功的資料供參考
         c.lastGood = prev?.state && prev.state !== 'source_error' ? { state: prev.state, summary: prev.summary, checkedAt: prev.checkedAt } : prev?.lastGood;
-        console.error(`[${reg.name}] ${cno} 讀取失敗：${c.error}`);
+        if (out.available) console.error(`[${reg.name}] ${cno} 讀取失敗：${c.error}`);
       }
       c.summary = summarize(c);
       c.checkedAt = new Date().toISOString();
       c.changedAt = prev && prev.state === c.state && prev.summary === c.summary ? prev.changedAt : c.checkedAt;
       companies.push(c);
-      await new Promise((r) => setTimeout(r, 300));
+      if (out.available) await new Promise((r) => setTimeout(r, 300));
     }
     return { region: out, companies };
   }));

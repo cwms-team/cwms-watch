@@ -2,7 +2,9 @@
 // 流程：GET 頁面 → 以下拉選單 postback 選定業者 → 用 DevExpress callback 逐頁翻完。
 // 不需任何外部套件（Node 20+）。
 
-const UA = 'Mozilla/5.0 (compatible; CWMS-Watch/1.0; +https://github.com/)';
+import https from 'node:https';
+
+const UA ='Mozilla/5.0 (compatible; CWMS-Watch/1.0; +https://github.com/)';
 const SELECT_NAME = 'ctl00$ContentPlaceHolder1$DDL_CNO';
 const GRID_NAME = 'ctl00$ContentPlaceHolder1$GridView';
 
@@ -73,30 +75,68 @@ export function parseCallbackHtml(text) {
   });
 }
 
+// 台灣政府網站常缺中繼憑證（瀏覽器會自動補、Node 不會）。
+// 遇到這類憑證錯誤時，該主機改用「不驗證憑證」模式；只用於讀取公開資料。
+const TLS_CODES = new Set(['UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY', 'SELF_SIGNED_CERT_IN_CHAIN',
+  'DEPTH_ZERO_SELF_SIGNED_CERT', 'CERT_HAS_EXPIRED', 'ERR_TLS_CERT_ALTNAME_INVALID', 'UNABLE_TO_GET_ISSUER_CERT', 'CERT_UNTRUSTED']);
+const insecureHosts = new Set();
+
+function describeError(e) {
+  const code = e?.code || e?.cause?.code;
+  const msg = e?.message || String(e);
+  return code && !msg.includes(code) ? `${msg} (${code})` : msg;
+}
+
+function httpRequest(url, { method, headers, body, timeoutMs, insecure }) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, { method, headers, rejectUnauthorized: !insecure, timeout: timeoutMs }, (res) => {
+      const chunks = [];
+      res.on('data', (c) => chunks.push(c));
+      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, text: Buffer.concat(chunks).toString('utf8') }));
+      res.on('error', reject);
+    });
+    req.on('timeout', () => req.destroy(Object.assign(new Error(`逾時 ${timeoutMs / 1000} 秒`), { code: 'ETIMEDOUT' })));
+    req.on('error', reject);
+    if (body) req.write(body);
+    req.end();
+  });
+}
+
 class Session {
-  constructor(url, { timeoutMs = 25000 } = {}) {
+  constructor(url, { timeoutMs = 20000 } = {}) {
     this.url = url;
+    this.host = new URL(url).host;
     this.cookies = new Map();
     this.timeoutMs = timeoutMs;
   }
-  async request(body) {
-    const headers = { 'User-Agent': UA, 'Accept-Language': 'zh-TW,zh;q=0.9' };
+  async request(form) {
+    const headers = { 'User-Agent': UA, 'Accept-Language': 'zh-TW,zh;q=0.9', Accept: 'text/html,*/*' };
     if (this.cookies.size) headers.Cookie = [...this.cookies].map(([k, v]) => `${k}=${v}`).join('; ');
-    if (body) headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-    const res = await fetch(this.url, {
-      method: body ? 'POST' : 'GET',
-      headers,
-      body: body ? new URLSearchParams(body).toString() : undefined,
-      signal: AbortSignal.timeout(this.timeoutMs),
-      redirect: 'follow',
-    });
-    for (const c of res.headers.getSetCookie?.() ?? []) {
+    const body = form ? new URLSearchParams(form).toString() : undefined;
+    if (body) {
+      headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+      headers['Content-Length'] = Buffer.byteLength(body);
+    }
+    const opts = { method: body ? 'POST' : 'GET', headers, body, timeoutMs: this.timeoutMs };
+    let res;
+    try {
+      res = await httpRequest(this.url, { ...opts, insecure: insecureHosts.has(this.host) });
+    } catch (e) {
+      if (!insecureHosts.has(this.host) && TLS_CODES.has(e.code)) {
+        console.warn(`[${this.host}] 憑證驗證失敗（${e.code}），改用相容模式`);
+        insecureHosts.add(this.host);
+        res = await httpRequest(this.url, { ...opts, insecure: true });
+      } else {
+        throw new Error(describeError(e));
+      }
+    }
+    for (const c of [].concat(res.headers['set-cookie'] ?? [])) {
       const [pair] = c.split(';');
       const i = pair.indexOf('=');
       if (i > 0) this.cookies.set(pair.slice(0, i).trim(), pair.slice(i + 1).trim());
     }
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.text();
+    if (res.status >= 300) throw new Error(`HTTP ${res.status}`);
+    return res.text;
   }
 }
 
