@@ -1,0 +1,15 @@
+[
+ {
+  "source": "cloud",
+  "at": "2026-11-24T07:49:06.124Z",
+  "trigger": "push",
+  "durationMs": 78451,
+  "watched": 45,
+  "abnormal": 14,
+  "delayed": 0,
+  "noData": 0,
+  "sourceError": 0,
+  "notify": 0,
+  "discordSent": 0
+ }
+]
