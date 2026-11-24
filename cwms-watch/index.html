@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CWMS Watch｜五縣市放流水監控</title>
+<meta name="description" content="每 30 分鐘檢查台中、彰化、雲林、苗栗、南投 CWMS 公開即時監測資料。">
+<!-- 若網址不是 <帳號>.github.io/<repo>/，請在這裡填 GitHub repo，例如 cwms-team/cwms-watch -->
+<meta name="cwms-repo" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ea; --card:#fffdf8; --ink:#1d2a25; --muted:#6b756f; --line:#e6e0d3;
+  --green:#1f4d3f; --green-2:#2f6b57; --green-soft:#e3efe8;
+  --red:#b4442f; --red-soft:#f8e4de; --amber:#a86a12; --amber-soft:#f7ecd6;
+  --blue:#2c5d8a; --blue-soft:#e2ecf5; --gray-soft:#eeebe4;
+  --radius:18px; --shadow:0 1px 2px rgba(30,40,35,.05),0 6px 24px rgba(30,40,35,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green-2)}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(245,242,234,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:64px}
+.logo{width:38px;height:38px;border-radius:11px;background:var(--green);color:#fff;display:grid;place-items:center;font:700 18px "Noto Serif TC",serif;flex:none}
+.brand b{display:block;font-size:16px;letter-spacing:.2px}
+.brand small{color:var(--muted);font-size:12px}
+nav.tabs{display:flex;gap:4px;margin-left:auto}
+nav.tabs a{padding:7px 12px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px}
+nav.tabs a:hover{background:var(--gray-soft);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:9px 15px;background:var(--green);color:#fff;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--green-2)}
+.btn.ghost{background:transparent;color:var(--green);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--green-soft)}
+.btn.sm{padding:6px 11px;font-size:13px;border-radius:8px}
+@media (max-width:760px){nav.tabs{display:none}.bar .btn{margin-left:auto}}
+/* hero */
+.eyebrow{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--green-2);text-transform:uppercase;margin:44px 0 10px}
+h1{font:700 clamp(28px,4.6vw,44px)/1.25 "Noto Serif TC",serif;margin:0 0 14px;letter-spacing:.5px}
+h2{font:700 24px/1.3 "Noto Serif TC",serif;margin:0}
+.lead{color:var(--muted);max-width:760px;margin:0}
+section{margin-top:44px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.sec-head .meta{color:var(--muted);font-size:13px;display:flex;gap:16px;flex-wrap:wrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+/* run status */
+.run{margin-top:26px;padding:22px 24px;position:relative;overflow:hidden;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.run::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--green-soft)}
+.dot{width:10px;height:10px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 5px rgba(58,167,109,.15);flex:none}
+.dot.warn{background:#d18a1d;box-shadow:0 0 0 5px rgba(209,138,29,.15)}
+.dot.bad{background:var(--red);box-shadow:0 0 0 5px rgba(180,68,47,.15)}
+.run .k{font-size:12px;color:var(--muted)}
+.run .v{font-size:20px;font-weight:700}
+.run .sub{color:var(--muted);font-size:13px}
+.run>div{position:relative;z-index:1}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:18px 20px}
+.stat .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-size:14px;margin-bottom:10px}
+.stat .lbl{font-size:13px;color:var(--muted)}
+.stat .num{font-size:30px;font-weight:700;line-height:1.2}
+.stat .note{font-size:12px;color:var(--muted)}
+.ic.g{background:var(--green-soft);color:var(--green)}.ic.r{background:var(--red-soft);color:var(--red)}
+.ic.a{background:var(--amber-soft);color:var(--amber)}.ic.b{background:var(--blue-soft);color:var(--blue)}
+.regions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.region{padding:10px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);cursor:pointer;text-align:left;min-width:120px}
+.region b{display:block;font-size:15px}
+.region span{font-size:12px;color:var(--muted)}
+.region.on{border-color:var(--green);background:var(--green-soft)}
+.region.down b::after{content:" ⚠";color:var(--red)}
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .c{opacity:.6;margin-left:4px}
+.search{flex:1;min-width:180px;max-width:300px;margin-left:auto;position:relative}
+.search input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px 8px 32px;font:inherit;font-size:14px}
+.search::before{content:"⌕";position:absolute;left:11px;top:6px;color:var(--muted);font-size:17px}
+/* alert cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.alert{padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.alert .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px}
+.pill.r{background:var(--red-soft);color:var(--red)}.pill.a{background:var(--amber-soft);color:var(--amber)}
+.pill.b{background:var(--blue-soft);color:var(--blue)}.pill.g{background:var(--green-soft);color:var(--green)}
+.pill.k{background:var(--gray-soft);color:var(--muted)}
+.alert .where{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.alert h3{margin:0;font-size:17px;line-height:1.4}
+.alert .sum{font-size:14px}
+.alert .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-top:auto;padding-top:8px;border-top:1px dashed var(--line)}
+.linkbtn{background:none;border:0;color:var(--green-2);font-weight:600;font-size:13px;padding:0}
+.empty{padding:36px;text-align:center;color:var(--muted)}
+/* details dialog */
+dialog{border:0;border-radius:20px;padding:0;max-width:min(960px,94vw);width:100%;box-shadow:0 20px 60px rgba(0,0,0,.25);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(20,28,24,.45)}
+.dlg-h{padding:20px 22px 12px;display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid var(--line)}
+.dlg-h h3{margin:2px 0 0;font-size:18px}
+.dlg-b{padding:8px 22px 22px;max-height:70vh;overflow:auto}
+.x{margin-left:auto;border:0;background:var(--gray-soft);width:32px;height:32px;border-radius:50%;font-size:16px;flex:none}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:500;position:sticky;top:0;background:var(--card)}
+@media (max-width:640px){
+  .dlg-b table thead{display:none}
+  .dlg-b table tr{display:block;border-bottom:1px solid var(--line);padding:8px 0}
+  .dlg-b table td{display:flex;justify-content:space-between;border:0;padding:3px 0}
+  .dlg-b table td::before{content:attr(data-l);color:var(--muted);font-size:12px;margin-right:12px}
+}
+/* operators list */
+.ops{padding:6px 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));column-gap:16px}
+.op{display:flex;align-items:center;gap:10px;padding:9px 10px;border-bottom:1px solid var(--line);font-size:14px}
+.ops .empty{grid-column:1/-1}
+.op .n{flex:1;min-width:0}
+.op .n small{display:block;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.op .t{font-size:12px;color:var(--muted);white-space:nowrap}
+/* settings */
+.two{display:grid;grid-template-columns:1fr 1.3fr;gap:14px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.pad{padding:20px 22px}
+.rules li{margin:6px 0}
+.rules{padding-left:18px;margin:10px 0 0;font-size:14px}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;background:var(--gray-soft);margin:0 2px}
+.picker-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.picker-head .count{font-size:13px;color:var(--muted)}
+details.reg{border:1px solid var(--line);border-radius:14px;margin-top:10px;background:#fff}
+details.reg summary{list-style:none;display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer}
+details.reg summary::-webkit-details-marker{display:none}
+details.reg summary b{font-size:15px}
+details.reg summary .count{font-size:12px;color:var(--muted);margin-left:auto}
+details.reg summary::after{content:"›";transform:rotate(90deg);color:var(--muted);transition:.2s}
+details.reg[open] summary::after{transform:rotate(-90deg)}
+.reg-tools{display:flex;gap:8px;padding:0 16px 8px}
+.reg-list{max-height:340px;overflow:auto;padding:0 8px 10px}
+.reg-list label{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;font-size:14px;cursor:pointer}
+.reg-list label:hover{background:var(--bg)}
+.reg-list input{margin-top:4px;accent-color:var(--green)}
+.reg-list small{color:var(--muted);display:block;font-size:12px}
+.save-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);align-items:center}
+.save-bar .hint{font-size:12px;color:var(--muted);flex-basis:100%}
+.runs td,.runs th{padding:7px 8px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+footer{margin:60px 0 40px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+.banner{margin-top:18px;padding:12px 16px;border-radius:12px;background:var(--amber-soft);color:#6b4708;font-size:14px;display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="logo">水</div>
+    <div class="brand"><b>CWMS Watch</b><small>五縣市放流水監控</small></div>
+    <nav class="tabs">
+      <a href="#overview">總覽</a><a href="#alerts">異常</a><a href="#operators">業者</a><a href="#settings">設定</a>
+    </nav>
+    <a class="btn" id="runNow" href="#" target="_blank" rel="noopener">▶ 立即檢查</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="overview">
+    <div class="eyebrow">Automated effluent monitoring</div>
+    <h1>五縣市水質狀態，一頁掌握</h1>
+    <p class="lead">每 30 分鐘自動檢查台中、彰化、雲林、苗栗與南投的 CWMS 公開即時監測資料。
+      <span class="tag">校正值</span><span class="tag">單元故障</span><span class="tag">No data</span>，以及監測時間落後超過 3 小時會發 Discord 通知；其餘異常（超限值、無效值、來源讀取失敗）只顯示在本頁。</p>
+    <div class="banner" id="banner"></div>
+
+    <div class="card run">
+      <span class="dot" id="runDot"></span>
+      <div><div class="k">背景監控（GitHub Actions）</div><div class="v" id="runTitle">載入中…</div><div class="sub" id="runSub"></div></div>
+    </div>
+
+    <div class="stats">
+      <div class="card stat"><div class="ic g">◎</div><div class="lbl">監控業者</div><div class="num" id="sWatched">–</div><div class="note" id="sWatchedNote">跨 5 個縣市</div></div>
+      <div class="card stat"><div class="ic r">!</div><div class="lbl">狀態異常</div><div class="num" id="sAbn">–</div><div class="note" id="sAbnNote">含監測資料延遲</div></div>
+      <div class="card stat"><div class="ic a">∅</div><div class="lbl">No data / 來源失敗</div><div class="num" id="sNoData">–</div><div class="note" id="sNoDataNote"></div></div>
+      <div class="card stat"><div class="ic b">#</div><div class="lbl">Discord 通知</div><div class="num" id="sDiscord" style="font-size:22px;padding:4px 0">–</div><div class="note">校正值、單元故障、No data、延遲</div></div>
+    </div>
+    <div class="regions" id="regions"></div>
+  </div>
+
+  <section id="alerts">
+    <div class="sec-head">
+      <div><div class="eyebrow" style="margin-top:0">Current conditions</div><h2>目前異常狀態</h2></div>
+      <div class="meta"><span>最近檢查 <b id="lastChecked">–</b></span><span>觸發 <b id="lastTrigger">–</b></span></div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="alertGrid"></div>
+  </section>
+
+  <section id="operators">
+    <div class="sec-head">
+      <div><div class="eyebrow" style="margin-top:0">Watch list</div><h2>全部監控業者</h2></div>
+      <div class="meta"><span id="opsMeta"></span></div>
+    </div>
+    <div class="card ops" id="opsList"></div>
+  </section>
+
+  <section id="settings">
+    <div class="sec-head"><div><div class="eyebrow" style="margin-top:0">Monitoring settings</div><h2>監控設定</h2></div></div>
+    <div class="two">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card pad">
+          <b>通知規則</b>
+          <ul class="rules">
+            <li>會發 Discord：<span class="tag">校正值</span><span class="tag">單元故障</span><span class="tag">No data</span><span class="tag">延遲 &gt; 3 小時</span></li>
+            <li>只顯示在本頁：<span class="tag">超限值</span><span class="tag">無效值</span><span class="tag">來源讀取失敗</span></li>
+            <li>同一個狀況只通知一次；狀況解除時會發一則「已恢復」。</li>
+            <li>Discord Webhook 存在 GitHub repo 的 <b>Secrets</b>（<code>DISCORD_WEBHOOK_URL</code>），不會出現在公開網頁上。</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <b>最近執行紀錄</b>
+          <div style="max-height:320px;overflow:auto;margin-top:8px"><table class="runs"><thead><tr><th>時間</th><th>方式</th><th>業者</th><th>異常</th><th>通知</th></tr></thead><tbody id="runsBody"></tbody></table></div>
+        </div>
+      </div>
+      <div class="card pad">
+        <b>接收哪些業者的通知</b>
+        <p style="color:var(--muted);font-size:13px;margin:6px 0 12px">這是公開網頁，無法直接存檔。勾選後按「在 GitHub 更新」，把內容貼進 <code>config/watchlist.json</code> 並 Commit，系統會馬上用新名單檢查一次。</p>
+        <div class="picker-head">
+          <div class="search" style="margin-left:0;max-width:none"><input id="pickSearch" placeholder="搜尋業者名稱或管制編號"></div>
+          <span class="count" id="pickCount"></span>
+        </div>
+        <div id="picker"></div>
+        <div class="save-bar">
+          <button class="btn" id="ghEdit">在 GitHub 更新</button>
+          <button class="btn ghost" id="copyJson">複製 JSON</button>
+          <button class="btn ghost" id="dlJson">下載 watchlist.json</button>
+          <button class="btn ghost" id="resetPick">還原</button>
+          <span class="hint" id="pickHint"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>本工具整理政府公開資料；實際數值與狀態仍以各縣市原始系統為準。</span>
+    <span id="srcLinks"></span>
+  </footer>
+</main>
+
+<dialog id="dlg"><div class="dlg-h"><div><div class="where" id="dlgWhere"></div><h3 id="dlgTitle"></h3><div id="dlgSum" style="font-size:13px;color:var(--muted)"></div></div><button class="x" onclick="dlg.close()" aria-label="關閉">✕</button></div><div class="dlg-b" id="dlgBody"></div></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+const REGION_ORDER = ['taichung','changhua','yunlin','miaoli','nantou'];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (iso, withDate = true) => iso ? new Date(iso).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false, ...(withDate ? { month: '2-digit', day: '2-digit' } : {}), hour: '2-digit', minute: '2-digit' }) : '–';
+const ago = (iso) => { if (!iso) return ''; const m = Math.round((Date.now() - new Date(iso)) / 60000); if (m < 1) return '剛剛'; if (m < 60) return `${m} 分鐘前`; const h = Math.floor(m / 60); return h < 48 ? `${h} 小時 ${m % 60} 分前` : `${Math.floor(h / 24)} 天前`; };
+const rocTime = (d, t) => { const m = String(d).match(/^(\d{2,3})(\d{2})(\d{2})$/); return m ? `${m[2]}/${m[3]} ${String(t).padStart(4,'0').replace(/(\d\d)(\d\d)/,'$1:$2')}` : `${d} ${t}`; };
+const toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2200); };
+
+// ---- GitHub repo 推算 ----
+function detectRepo() {
+  const meta = document.querySelector('meta[name="cwms-repo"]')?.content.trim();
+  if (meta) return meta;
+  const h = location.hostname;
+  if (h.endsWith('.github.io')) {
+    const owner = h.split('.')[0];
+    const seg = location.pathname.split('/').filter(Boolean)[0];
+    return seg && !seg.includes('.') ? `${owner}/${seg}` : `${owner}/${h}`;
+  }
+  return '';
+}
+const REPO = detectRepo();
+const ghUrl = (path) => REPO ? `https://github.com/${REPO}/${path}` : '';
+
+let S = null, CAT = null, WATCH = {}, RUNS = [];
+let filter = { kind: 'all', region: null, q: '' };
+let pick = {};
+
+async function getJson(path, fallback) {
+  try { const r = await fetch(`${path}?t=${Date.now()}`, { cache: 'no-store' }); if (!r.ok) throw 0; return await r.json(); }
+  catch { return fallback; }
+}
+
+async function load() {
+  [S, CAT, WATCH, RUNS] = await Promise.all([
+    getJson('data/status.json', null), getJson('data/catalog.json', { regions: [] }),
+    getJson('config/watchlist.json', {}), getJson('data/runs.json', []),
+  ]);
+  pick = Object.fromEntries(REGION_ORDER.map((k) => [k, new Set(WATCH[k] || [])]));
+  renderAll();
+}
+
+const regionName = (k) => (CAT.regions.find((r) => r.key === k) || S?.regions?.find((r) => r.key === k) || { name: k }).name;
+
+function classify(c) {
+  const kinds = new Set();
+  if (c.state === 'no_data') kinds.add('nodata');
+  if (c.state === 'source_error') kinds.add('source');
+  for (const d of c.details || []) {
+    if (d.delayed) kinds.add('delay');
+    if (/超限/.test(d.status)) kinds.add('over');
+    if (/無效/.test(d.status)) kinds.add('invalid');
+    if (/校正|故障/.test(d.status)) kinds.add('calib');
+    if (d.notify) kinds.add('notify');
+  }
+  if (c.state === 'no_data') kinds.add('notify');
+  return kinds;
+}
+
+function renderAll() {
+  renderRun(); renderStats(); renderRegions(); renderFilters(); renderAlerts(); renderOps(); renderRuns(); renderPicker();
+  const a = $('#runNow');
+  if (REPO) a.href = ghUrl('actions/workflows/monitor.yml');
+  else a.addEventListener('click', (e) => { e.preventDefault(); toast('請先在 index.html 的 cwms-repo 填入 GitHub repo'); });
+  $('#srcLinks').innerHTML = (CAT.regions || []).map((r) => `<a href="${esc(r.sourceUrl)}" target="_blank" rel="noopener">${esc(r.name)}</a>`).join('・');
+}
+
+function renderRun() {
+  const dot = $('#runDot');
+  if (!S) {
+    $('#runTitle').textContent = '尚未執行';
+    $('#runSub').innerHTML = REPO ? `請到 <a href="${ghUrl('actions')}" target="_blank" rel="noopener">GitHub Actions</a> 執行第一次檢查。` : '請到 GitHub Actions 執行第一次檢查。';
+    dot.className = 'dot warn'; return;
+  }
+  const mins = (Date.now() - new Date(S.checkedAt)) / 60000;
+  const stale = mins > 75;
+  dot.className = 'dot' + (stale ? ' bad' : '');
+  $('#runTitle').textContent = stale ? '背景監控可能停止了' : '每 30 分鐘自動檢查中';
+  $('#runSub').innerHTML = `最近一次：${fmt(S.checkedAt)}（${ago(S.checkedAt)}）・耗時 ${Math.round(S.durationMs / 1000)} 秒` +
+    (stale && REPO ? `・<a href="${ghUrl('actions')}" target="_blank" rel="noopener">檢查 Actions</a>` : '');
+  const down = S.regions.filter((r) => !r.available);
+  const b = $('#banner');
+  if (down.length) { b.style.display = 'block'; b.textContent = `⚠ ${down.map((r) => r.name).join('、')} 的公開網站這次讀取失敗，資料可能不是最新。`; }
+  $('#lastChecked').textContent = fmt(S.checkedAt);
+  $('#lastTrigger').textContent = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機' }[S.trigger] || S.trigger;
+}
+
+function renderStats() {
+  const t = S?.totals;
+  $('#sWatched').textContent = t ? t.watched : Object.values(WATCH).flat().length;
+  $('#sAbn').textContent = t ? t.abnormal : '–';
+  $('#sAbnNote').textContent = t ? `其中 ${t.delayed} 家資料延遲超過 ${(S.delayMinutes || 180) / 60} 小時` : '含監測資料延遲';
+  $('#sNoData').textContent = t ? `${t.noData} / ${t.sourceError}` : '–';
+  $('#sNoDataNote').textContent = '僅計入監控中的業者';
+  $('#sDiscord').textContent = S ? (S.discordConfigured ? '已設定' : '未設定') : '–';
+}
+
+function renderRegions() {
+  $('#regions').innerHTML = REGION_ORDER.map((k) => {
+    const cat = CAT.regions.find((r) => r.key === k);
+    const st = S?.regions?.find((r) => r.key === k);
+    const total = st?.operatorCount ?? cat?.operators.length ?? 0;
+    const watched = (WATCH[k] || []).length;
+    return `<button class="region ${filter.region === k ? 'on' : ''} ${st && !st.available ? 'down' : ''}" data-r="${k}"><b>${esc(regionName(k))}</b><span>${total} 家業者・監控 ${watched}</span></button>`;
+  }).join('');
+  $('#regions').querySelectorAll('.region').forEach((b) => b.onclick = () => {
+    filter.region = filter.region === b.dataset.r ? null : b.dataset.r;
+    renderRegions(); renderFilters(); renderAlerts(); renderOps();
+    document.getElementById('alerts').scrollIntoView();
+  });
+}
+
+const KINDS = [['all','全部異常'],['notify','會通知'],['over','超限值'],['invalid','無效值'],['calib','校正 / 故障'],['delay','資料延遲'],['nodata','No data'],['source','來源失敗']];
+function problemCompanies() {
+  return (S?.companies || []).filter((c) => c.state !== 'normal')
+    .filter((c) => !filter.region || c.region === filter.region);
+}
+function renderFilters() {
+  const list = problemCompanies();
+  const count = (k) => k === 'all' ? list.length : list.filter((c) => classify(c).has(k)).length;
+  $('#filters').innerHTML = KINDS.filter(([k]) => k === 'all' || count(k)).map(([k, l]) =>
+    `<button class="chip ${filter.kind === k ? 'on' : ''}" data-k="${k}">${l}<span class="c">${count(k)}</span></button>`).join('') +
+    (filter.region ? `<button class="chip on" data-clear="1">${esc(regionName(filter.region))} ✕</button>` : '') +
+    `<div class="search"><input id="q" placeholder="搜尋業者或管制編號" value="${esc(filter.q)}"></div>`;
+  $('#filters').querySelectorAll('[data-k]').forEach((b) => b.onclick = () => { filter.kind = b.dataset.k; renderFilters(); renderAlerts(); });
+  const cl = $('#filters [data-clear]'); if (cl) cl.onclick = () => { filter.region = null; renderRegions(); renderFilters(); renderAlerts(); renderOps(); };
+  const q = $('#q'); q.oninput = () => { filter.q = q.value.trim(); renderAlerts(); renderOps(); };
+}
+
+function stateBadge(c) {
+  const k = classify(c);
+  if (c.state === 'source_error') return '<span class="pill k">來源讀取失敗</span>';
+  if (c.state === 'no_data') return '<span class="pill a">No data</span>';
+  const out = ['<span class="pill r">狀態異常</span>'];
+  if (k.has('notify')) out.push('<span class="pill b">會通知</span>');
+  return out.join('');
+}
+const matchQ = (c) => !filter.q || (c.company + c.cno).toLowerCase().includes(filter.q.toLowerCase());
+
+function renderAlerts() {
+  if (!S) { $('#alertGrid').innerHTML = '<div class="card empty" style="grid-column:1/-1">還沒有監控結果。第一次執行完成後會出現在這裡。</div>'; return; }
+  let list = problemCompanies().filter((c) => filter.kind === 'all' || classify(c).has(filter.kind)).filter(matchQ);
+  const rank = (c) => (classify(c).has('notify') ? 0 : 1);
+  list.sort((a, b) => rank(a) - rank(b) || REGION_ORDER.indexOf(a.region) - REGION_ORDER.indexOf(b.region) || a.company.localeCompare(b.company, 'zh-Hant'));
+  if (!list.length) { $('#alertGrid').innerHTML = `<div class="card empty" style="grid-column:1/-1">${filter.kind === 'all' && !filter.q ? '🎉 目前沒有異常' : '沒有符合條件的業者'}</div>`; return; }
+  $('#alertGrid').innerHTML = list.map((c) => `
+    <article class="card alert">
+      <div class="top">${stateBadge(c)}<span class="where">${esc(regionName(c.region))} · ${esc(c.cno)}</span></div>
+      <h3>${esc(c.company)}</h3>
+      <div class="sum">${esc(c.summary)}${c.state === 'source_error' && c.lastGood ? `<div style="font-size:12px;color:var(--muted)">上次成功（${fmt(c.lastGood.checkedAt)}）：${esc(c.lastGood.summary)}</div>` : ''}</div>
+      <div class="foot"><span>最後檢查 ${fmt(c.checkedAt)}${c.changedAt && Date.now() - new Date(c.changedAt) > 5 * 60000 ? `・持續 ${ago(c.changedAt).replace('前','')}` : ''}</span>
+      ${c.details?.length ? `<button class="linkbtn" data-open="${c.region}:${c.cno}">查看明細（${c.details.length}）</button>` : ''}</div>
+    </article>`).join('');
+  $('#alertGrid').querySelectorAll('[data-open]').forEach((b) => b.onclick = () => openDetail(b.dataset.open));
+}
+
+function openDetail(key) {
+  const c = S.companies.find((x) => `${x.region}:${x.cno}` === key);
+  if (!c) return;
+  const region = CAT.regions.find((r) => r.key === c.region) || S.regions.find((r) => r.key === c.region);
+  $('#dlgWhere').textContent = `${regionName(c.region)} · ${c.cno}`;
+  $('#dlgTitle').textContent = c.company;
+  $('#dlgSum').innerHTML = `${esc(c.summary)}・最後檢查 ${fmt(c.checkedAt)}${region ? `・<a href="${esc(region.sourceUrl)}" target="_blank" rel="noopener">原始網站</a>` : ''}`;
+  const pill = (d) => d.delayed && d.status === '正常值' ? `<span class="pill a">延遲 ${Math.floor(d.delayMinutes / 60)}h${d.delayMinutes % 60}m</span>`
+    : `<span class="pill ${/校正|故障/.test(d.status) ? 'b' : /超限/.test(d.status) ? 'r' : 'a'}">${esc(d.status)}</span>${d.delayed ? ` <span class="pill a">延遲</span>` : ''}`;
+  $('#dlgBody').innerHTML = `<table><thead><tr><th>監測位置</th><th>項目</th><th>監測時間</th><th>監測值</th><th>標準</th><th>單位</th><th>狀態</th></tr></thead><tbody>${
+    c.details.map((d) => `<tr><td data-l="監測位置">${esc(d.location)}</td><td data-l="項目">${esc(d.item)}</td><td data-l="監測時間">${esc(rocTime(d.date, d.time))}</td><td data-l="監測值"><b>${esc(d.value)}</b></td><td data-l="標準">${esc(d.standard)}</td><td data-l="單位">${esc(d.unit)}</td><td data-l="狀態">${pill(d)}</td></tr>`).join('')}</tbody></table>`;
+  $('#dlg').showModal();
+}
+
+function renderOps() {
+  const comp = new Map((S?.companies || []).map((c) => [`${c.region}:${c.cno}`, c]));
+  const rows = [];
+  for (const k of REGION_ORDER) {
+    if (filter.region && k !== filter.region) continue;
+    const names = new Map((CAT.regions.find((r) => r.key === k)?.operators || []).map((o) => [o.cno, o.name]));
+    for (const cno of WATCH[k] || []) {
+      const c = comp.get(`${k}:${cno}`) || { region: k, cno, company: names.get(cno) || cno, state: 'pending', details: [] };
+      if (!matchQ(c)) continue;
+      rows.push(c);
+    }
+  }
+  $('#opsMeta').textContent = `${rows.length} 家${filter.region ? `（${regionName(filter.region)}）` : ''}`;
+  const badge = (c) => c.state === 'normal' ? '<span class="pill g">正常</span>' : c.state === 'pending' ? '<span class="pill k">待檢查</span>' : stateBadge(c).split('</span>')[0] + '</span>';
+  $('#opsList').innerHTML = rows.length ? rows.map((c) => `
+    <div class="op">${badge(c)}<div class="n">${esc(c.company)}<small>${esc(regionName(c.region))} · ${esc(c.cno)}${c.lastDataAt ? `・資料 ${fmt(c.lastDataAt)}` : ''}</small></div>
+    ${c.details?.length ? `<button class="linkbtn" data-open="${c.region}:${c.cno}">明細</button>` : `<span class="t">${c.state === 'normal' ? esc(c.rowCount + ' 項正常') : ''}</span>`}</div>`).join('')
+    : '<div class="empty">沒有符合的業者</div>';
+  $('#opsList').querySelectorAll('[data-open]').forEach((b) => b.onclick = () => openDetail(b.dataset.open));
+}
+
+function renderRuns() {
+  const tr = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機' };
+  $('#runsBody').innerHTML = RUNS.length ? RUNS.slice(0, 48).map((r) => `<tr><td>${fmt(r.at)}</td><td>${tr[r.trigger] || esc(r.trigger)}</td><td>${r.watched}</td><td>${r.abnormal}${r.sourceError ? ` <span style="color:var(--muted)">(+${r.sourceError} 失敗)</span>` : ''}</td><td>${r.discordSent ? '✓' : '–'}</td></tr>`).join('')
+    : '<tr><td colspan="5" style="color:var(--muted)">尚無紀錄</td></tr>';
+}
+
+// ---- 名單編輯器 ----
+function pickJson() {
+  const out = {};
+  for (const k of REGION_ORDER) {
+    const order = (CAT.regions.find((r) => r.key === k)?.operators || []).map((o) => o.cno);
+    out[k] = [...pick[k]].sort((a, b) => (order.indexOf(a) + 1 || 1e9) - (order.indexOf(b) + 1 || 1e9));
+  }
+  return JSON.stringify(out, null, 1) + '\n';
+}
+function pickChanged() { return REGION_ORDER.some((k) => { const a = new Set(WATCH[k] || []); return a.size !== pick[k].size || [...pick[k]].some((c) => !a.has(c)); }); }
+function updatePickMeta() {
+  const n = REGION_ORDER.reduce((s, k) => s + pick[k].size, 0);
+  $('#pickCount').textContent = `已選擇 ${n} 家`;
+  $('#pickHint').textContent = pickChanged() ? '⚠ 名單有變更，尚未更新到 GitHub。' : '名單與目前設定相同。';
+  document.querySelectorAll('details.reg').forEach((d) => { const k = d.dataset.r; d.querySelector('.count').textContent = `${d.dataset.total} 家可選・${pick[k].size} 已選`; });
+}
+function renderPicker() {
+  const q = ($('#pickSearch').value || '').trim().toLowerCase();
+  const open = new Set([...document.querySelectorAll('details.reg[open]')].map((d) => d.dataset.r));
+  $('#picker').innerHTML = REGION_ORDER.map((k) => {
+    const ops = CAT.regions.find((r) => r.key === k)?.operators || [];
+    const shown = ops.filter((o) => !q || (o.name + o.cno).toLowerCase().includes(q));
+    return `<details class="reg" data-r="${k}" data-total="${ops.length}" ${open.has(k) || (q && shown.length) ? 'open' : ''}>
+      <summary><b>${esc(regionName(k))}</b><span class="count"></span></summary>
+      <div class="reg-tools"><button class="btn ghost sm" data-all="${k}">選取${q ? '搜尋結果' : '本區全部'}</button><button class="btn ghost sm" data-none="${k}">清除</button></div>
+      <div class="reg-list">${shown.map((o) => `<label><input type="checkbox" data-r="${k}" value="${esc(o.cno)}" ${pick[k].has(o.cno) ? 'checked' : ''}><span>${esc(o.name)}<small>${esc(o.cno)}</small></span></label>`).join('') || '<div style="padding:8px;color:var(--muted);font-size:13px">沒有符合的業者</div>'}</div>
+    </details>`;
+  }).join('');
+  $('#picker').querySelectorAll('input[type=checkbox]').forEach((i) => i.onchange = () => { pick[i.dataset.r][i.checked ? 'add' : 'delete'](i.value); updatePickMeta(); });
+  $('#picker').querySelectorAll('[data-all]').forEach((b) => b.onclick = () => { const k = b.dataset.all; b.closest('details').querySelectorAll('input').forEach((i) => { i.checked = true; pick[k].add(i.value); }); updatePickMeta(); });
+  $('#picker').querySelectorAll('[data-none]').forEach((b) => b.onclick = () => { const k = b.dataset.none; b.closest('details').querySelectorAll('input').forEach((i) => { i.checked = false; pick[k].delete(i.value); }); updatePickMeta(); });
+  updatePickMeta();
+}
+$('#pickSearch').oninput = renderPicker;
+async function copyText(t) { try { await navigator.clipboard.writeText(t); return true; } catch { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); const ok = document.execCommand('copy'); a.remove(); return ok; } }
+$('#copyJson').onclick = async () => toast(await copyText(pickJson()) ? '已複製名單 JSON' : '複製失敗');
+$('#dlJson').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([pickJson()], { type: 'application/json' })); a.download = 'watchlist.json'; a.click(); };
+$('#resetPick').onclick = () => { pick = Object.fromEntries(REGION_ORDER.map((k) => [k, new Set(WATCH[k] || [])])); renderPicker(); toast('已還原'); };
+$('#ghEdit').onclick = async () => {
+  await copyText(pickJson());
+  if (!REPO) { toast('已複製 JSON；請在 index.html 填入 cwms-repo 才能開啟 GitHub'); return; }
+  toast('已複製！在 GitHub 全選貼上後按 Commit changes');
+  setTimeout(() => window.open(ghUrl('edit/main/config/watchlist.json'), '_blank', 'noopener'), 600);
+};
+
+load();
+setInterval(load, 5 * 60 * 1000);   // 開著頁面時每 5 分鐘重新讀取
+</script>
+</body>
+</html>
