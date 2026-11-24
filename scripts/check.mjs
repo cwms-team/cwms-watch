@@ -2,7 +2,7 @@
 // 讀 config/watchlist.json → 抓五縣市公開資料 → 寫 data/*.json → 必要時發 Discord。
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { REGIONS } from './regions.mjs';
 import { fetchOperators, fetchOperatorRows } from './cwms-source.mjs';
 
@@ -15,6 +15,11 @@ const TRIGGER = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch' ? 'manual'
   : process.env.GITHUB_EVENT_NAME === 'schedule' ? 'schedule' : (process.env.GITHUB_EVENT_NAME || 'local');
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_RUNS = 96;
+// 分組執行：雲端（GitHub）跑大部分縣市，本機 runner 跑雲端連不到的縣市。
+const RUN_NAME = (process.env.RUN_NAME || 'cloud').replace(/[^\w-]/g, '');
+const ONLY = (process.env.ONLY_REGIONS || '').split(',').map((s) => s.trim()).filter(Boolean);
+const ACTIVE = ONLY.length ? REGIONS.filter((r) => ONLY.includes(r.key)) : REGIONS;
+const D = (f) => `data/${RUN_NAME}/${f}`;
 
 const NORMAL = '正常值';
 const isNotifyStatus = (s) => /校正|故障/.test(s);   // 校正值、單元故障 → 通知
@@ -122,14 +127,14 @@ async function sendDiscord(lines) {
 async function main() {
   const started = Date.now();
   const watch = await readJson('config/watchlist.json', {});
-  const prevStatus = await readJson('data/status.json', { companies: [] });
-  const prevNotify = await readJson('data/notify-state.json', {});
-  const runs = await readJson('data/runs.json', []);
-  const catalog = await readJson('data/catalog.json', { regions: [] });
+  const prevStatus = await readJson(D('status.json'), { companies: [] });
+  const prevNotify = await readJson(D('notify-state.json'), {});
+  const runs = await readJson(D('runs.json'), []);
+  const catalog = await readJson(D('catalog.json'), null) ?? await readJson('data/catalog.json', { regions: [] });
   const prevByKey = new Map(prevStatus.companies.map((c) => [`${c.region}:${c.cno}`, c]));
   const catByKey = new Map(catalog.regions.map((r) => [r.key, r]));
 
-  const regionResults = await Promise.all(REGIONS.map(async (reg) => {
+  const regionResults = await Promise.all(ACTIVE.map(async (reg) => {
     const out = { ...reg, available: true, error: null, operators: catByKey.get(reg.key)?.operators ?? [] };
     try {
       out.operators = await withRetry(() => fetchOperators(reg.sourceUrl));
@@ -208,8 +213,8 @@ async function main() {
     sourceError: companies.filter((c) => c.state === 'source_error').length,
     notify: Object.keys(nextNotify).length,
   };
-  await writeJson('data/status.json', {
-    checkedAt, trigger: TRIGGER, durationMs: Date.now() - started, delayMinutes: DELAY_MINUTES,
+  await writeJson(D('status.json'), {
+    source: RUN_NAME, checkedAt, trigger: TRIGGER, durationMs: Date.now() - started, delayMinutes: DELAY_MINUTES,
     discordConfigured: Boolean(WEBHOOK), totals,
     regions: regionResults.map(({ region: r }) => ({
       key: r.key, name: r.name, sourceUrl: r.sourceUrl, available: r.available, error: r.error,
@@ -217,17 +222,17 @@ async function main() {
     })),
     companies,
   });
-  await writeJson('data/catalog.json', {
+  await writeJson(D('catalog.json'), {
     updatedAt: checkedAt,
     regions: regionResults.map(({ region: r }) => ({ key: r.key, name: r.name, sourceUrl: r.sourceUrl, operators: r.operators })),
   });
-  await writeJson('data/notify-state.json', nextNotify);
-  runs.unshift({ at: checkedAt, trigger: TRIGGER, durationMs: Date.now() - started, ...totals, discordSent: sent });
-  await writeJson('data/runs.json', runs.slice(0, MAX_RUNS));
+  await writeJson(D('notify-state.json'), nextNotify);
+  runs.unshift({ source: RUN_NAME, at: checkedAt, trigger: TRIGGER, durationMs: Date.now() - started, ...totals, discordSent: sent });
+  await writeJson(D('runs.json'), runs.slice(0, MAX_RUNS));
 
   console.log(`完成：${totals.watched} 家，異常 ${totals.abnormal}，No data ${totals.noData}，來源失敗 ${totals.sourceError}，Discord ${sent} 則`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => { console.error(e); process.exit(1); });
 }
