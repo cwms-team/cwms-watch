@@ -172,7 +172,7 @@ footer{margin:60px 0 40px;color:var(--muted);font-size:13px;display:flex;justify
 
     <div class="card run">
       <span class="dot" id="runDot"></span>
-      <div><div class="k">背景監控（GitHub Actions）</div><div class="v" id="runTitle">載入中…</div><div class="sub" id="runSub"></div></div>
+      <div><div class="k">背景監控</div><div class="v" id="runTitle">載入中…</div><div class="sub" id="runSub"></div></div>
     </div>
 
     <div class="stats">
@@ -187,7 +187,7 @@ footer{margin:60px 0 40px;color:var(--muted);font-size:13px;display:flex;justify
   <section id="alerts">
     <div class="sec-head">
       <div><div class="eyebrow" style="margin-top:0">Current conditions</div><h2>目前異常狀態</h2></div>
-      <div class="meta"><span>最近檢查 <b id="lastChecked">–</b></span><span>觸發 <b id="lastTrigger">–</b></span></div>
+      <div class="meta"><span>最近檢查 <b id="lastChecked">–</b></span><span><b id="lastTrigger">–</b></span></div>
     </div>
     <div class="filters" id="filters"></div>
     <div class="grid" id="alertGrid"></div>
@@ -216,7 +216,7 @@ footer{margin:60px 0 40px;color:var(--muted);font-size:13px;display:flex;justify
         </div>
         <div class="card pad">
           <b>最近執行紀錄</b>
-          <div style="max-height:320px;overflow:auto;margin-top:8px"><table class="runs"><thead><tr><th>時間</th><th>方式</th><th>業者</th><th>異常</th><th>通知</th></tr></thead><tbody id="runsBody"></tbody></table></div>
+          <div style="max-height:320px;overflow:auto;margin-top:8px"><table class="runs"><thead><tr><th>時間</th><th>來源</th><th>方式</th><th>業者</th><th>異常</th><th>通知</th></tr></thead><tbody id="runsBody"></tbody></table></div>
         </div>
       </div>
       <div class="card pad">
@@ -271,7 +271,7 @@ function detectRepo() {
 const REPO = detectRepo();
 const ghUrl = (path) => REPO ? `https://github.com/${REPO}/${path}` : '';
 
-let S = null, CAT = null, WATCH = {}, RUNS = [];
+let S = null, CAT = null, WATCH = {}, RUNS = [], SRC = [];
 let filter = { kind: 'all', region: null, q: '' };
 let pick = {};
 
@@ -280,11 +280,47 @@ async function getJson(path, fallback) {
   catch { return fallback; }
 }
 
+const SOURCES = [
+  { name: 'cloud', label: 'GitHub 雲端', note: '台中、雲林、苗栗、南投' },
+  { name: 'local', label: '本機電腦', note: '彰化' },
+];
 async function load() {
-  [S, CAT, WATCH, RUNS] = await Promise.all([
-    getJson('data/status.json', null), getJson('data/catalog.json', { regions: [] }),
-    getJson('config/watchlist.json', {}), getJson('data/runs.json', []),
+  const [baseCat, watch, ...parts] = await Promise.all([
+    getJson('data/catalog.json', { regions: [] }), getJson('config/watchlist.json', {}),
+    ...SOURCES.flatMap((src) => [getJson(`data/${src.name}/status.json`, null), getJson(`data/${src.name}/catalog.json`, null), getJson(`data/${src.name}/runs.json`, [])]),
   ]);
+  WATCH = watch;
+  const got = SOURCES.map((src, i) => ({ ...src, status: parts[i * 3], catalog: parts[i * 3 + 1], runs: parts[i * 3 + 2] || [] }));
+  const live = got.filter((g) => g.status);
+  // 業者清單：以各來源最新抓到的為準，沒有就用預設清單
+  const catRegions = new Map(baseCat.regions.map((r) => [r.key, r]));
+  for (const g of live) for (const r of g.catalog?.regions || []) if (r.operators?.length) catRegions.set(r.key, r);
+  CAT = { regions: REGION_ORDER.map((k) => catRegions.get(k)).filter(Boolean) };
+  if (!live.length) { S = null; SRC = got; RUNS = []; }
+  else {
+    const regions = new Map(), companies = [];
+    for (const g of live) {
+      for (const r of g.status.regions) regions.set(r.key, { ...r, source: g.name });
+      for (const c of g.status.companies) companies.push({ ...c, source: g.name });
+    }
+    const isDelayed = (c) => (c.details || []).some((d) => d.delayed);
+    S = {
+      checkedAt: live.map((g) => g.status.checkedAt).sort().at(-1),
+      delayMinutes: live[0].status.delayMinutes || 180,
+      discordConfigured: live.some((g) => g.status.discordConfigured),
+      regions: REGION_ORDER.map((k) => regions.get(k)).filter(Boolean),
+      companies,
+      totals: {
+        watched: companies.length,
+        abnormal: companies.filter((c) => c.state === 'abnormal').length,
+        delayed: companies.filter(isDelayed).length,
+        noData: companies.filter((c) => c.state === 'no_data').length,
+        sourceError: companies.filter((c) => c.state === 'source_error').length,
+      },
+    };
+    SRC = got;
+    RUNS = got.flatMap((g) => g.runs.map((r) => ({ ...r, source: g.name }))).sort((a, b) => (a.at < b.at ? 1 : -1));
+  }
   pick = Object.fromEntries(REGION_ORDER.map((k) => [k, new Set(WATCH[k] || [])]));
   renderAll();
 }
@@ -316,22 +352,24 @@ function renderAll() {
 
 function renderRun() {
   const dot = $('#runDot');
-  if (!S) {
-    $('#runTitle').textContent = '尚未執行';
-    $('#runSub').innerHTML = REPO ? `請到 <a href="${ghUrl('actions')}" target="_blank" rel="noopener">GitHub Actions</a> 執行第一次檢查。` : '請到 GitHub Actions 執行第一次檢查。';
-    dot.className = 'dot warn'; return;
-  }
-  const mins = (Date.now() - new Date(S.checkedAt)) / 60000;
-  const stale = mins > 75;
-  dot.className = 'dot' + (stale ? ' bad' : '');
-  $('#runTitle').textContent = stale ? '背景監控可能停止了' : '每 30 分鐘自動檢查中';
-  $('#runSub').innerHTML = `最近一次：${fmt(S.checkedAt)}（${ago(S.checkedAt)}）・耗時 ${Math.round(S.durationMs / 1000)} 秒` +
-    (stale && REPO ? `・<a href="${ghUrl('actions')}" target="_blank" rel="noopener">檢查 Actions</a>` : '');
+  const lines = SRC.map((g) => {
+    const st = g.status;
+    if (!st) return `<div>・${g.label}（${g.note}）：尚未執行</div>`;
+    const stale = (Date.now() - new Date(st.checkedAt)) / 60000 > 75;
+    return `<div>・${g.label}（${g.note}）：${fmt(st.checkedAt)}（${ago(st.checkedAt)}）${stale ? ` <b style="color:var(--red)">${g.name === 'local' ? '電腦可能沒開' : '可能停止了'}</b>` : ''}</div>`;
+  });
+  const staleAny = SRC.some((g) => !g.status || (Date.now() - new Date(g.status.checkedAt)) / 60000 > 75);
+  const allStale = SRC.every((g) => !g.status || (Date.now() - new Date(g.status.checkedAt)) / 60000 > 75);
+  dot.className = 'dot' + (allStale ? ' bad' : staleAny ? ' warn' : '');
+  $('#runTitle').textContent = !S ? '尚未執行' : allStale ? '背景監控可能停止了' : staleAny ? '部分來源沒有更新' : '每 30 分鐘自動檢查中';
+  $('#runSub').innerHTML = lines.join('') + (staleAny && REPO ? `<div><a href="${ghUrl('actions')}" target="_blank" rel="noopener">查看 GitHub Actions</a></div>` : '');
+  if (!S) return;
   const down = S.regions.filter((r) => !r.available);
   const b = $('#banner');
   if (down.length) { b.style.display = 'block'; b.textContent = `⚠ ${down.map((r) => r.name).join('、')} 的公開網站這次讀取失敗，資料可能不是最新。`; }
+  else b.style.display = 'none';
   $('#lastChecked').textContent = fmt(S.checkedAt);
-  $('#lastTrigger').textContent = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機' }[S.trigger] || S.trigger;
+  $('#lastTrigger').textContent = SRC.filter((g) => g.status).map((g) => `${g.name === 'local' ? '本機' : '雲端'} ${fmt(g.status.checkedAt, false)}`).join('・');
 }
 
 function renderStats() {
@@ -440,8 +478,8 @@ function renderOps() {
 
 function renderRuns() {
   const tr = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機' };
-  $('#runsBody').innerHTML = RUNS.length ? RUNS.slice(0, 48).map((r) => `<tr><td>${fmt(r.at)}</td><td>${tr[r.trigger] || esc(r.trigger)}</td><td>${r.watched}</td><td>${r.abnormal}${r.sourceError ? ` <span style="color:var(--muted)">(+${r.sourceError} 失敗)</span>` : ''}</td><td>${r.discordSent ? '✓' : '–'}</td></tr>`).join('')
-    : '<tr><td colspan="5" style="color:var(--muted)">尚無紀錄</td></tr>';
+  $('#runsBody').innerHTML = RUNS.length ? RUNS.slice(0, 48).map((r) => `<tr><td>${fmt(r.at)}</td><td>${r.source === 'local' ? '本機' : '雲端'}</td><td>${tr[r.trigger] || esc(r.trigger)}</td><td>${r.watched}</td><td>${r.abnormal}${r.sourceError ? ` <span style="color:var(--muted)">(+${r.sourceError} 失敗)</span>` : ''}</td><td>${r.discordSent ? '✓' : '–'}</td></tr>`).join('')
+    : '<tr><td colspan="6" style="color:var(--muted)">尚無紀錄</td></tr>';
 }
 
 // ---- 名單編輯器 ----
