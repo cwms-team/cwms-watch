@@ -1,0 +1,41 @@
+name: CWMS 監控（本機）
+
+# 本機電腦（self-hosted runner）：彰化（GitHub 主機連不到彰化環保局網站）
+# 電腦關機時排程會排隊；新的一次會取代還沒開始的舊排程，不會堆積。
+on:
+  schedule:
+    - cron: '12,42 * * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ['config/watchlist.json', 'scripts/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cwms-monitor-local
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: self-hosted
+    timeout-minutes: 15
+    env:
+      RUN_NAME: local
+      ONLY_REGIONS: changhua
+      DELAY_MINUTES: '180'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 檢查 CWMS 公開資料
+        run: node scripts/check.mjs
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: 儲存結果
+        run: node scripts/commit.mjs
