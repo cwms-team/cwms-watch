@@ -21,6 +21,9 @@ jobs:
   check:
     runs-on: self-hosted
     timeout-minutes: 15
+    defaults:
+      run:
+        shell: cmd
     env:
       RUN_NAME: local
       ONLY_REGIONS: changhua
