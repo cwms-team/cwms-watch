@@ -1,0 +1,33 @@
+// 把 data/<RUN_NAME>/ 的結果 commit 並推回 GitHub（Windows / Linux 都能用）。
+import { execFileSync } from 'node:child_process';
+
+const RUN_NAME = (process.env.RUN_NAME || 'cloud').replace(/[^\w-]/g, '');
+const git = (...args) => execFileSync('git', args, { stdio: ['ignore', 'pipe', 'inherit'] }).toString().trim();
+
+git('config', 'user.name', 'cwms-watch-bot');
+git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com');
+git('config', 'core.autocrlf', 'false');
+git('add', '--all', `data/${RUN_NAME}`);
+
+const changed = git('diff', '--staged', '--name-only');
+if (!changed) {
+  console.log('沒有變更');
+  process.exit(0);
+}
+
+const stamp = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false, month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+git('commit', '-m', `data(${RUN_NAME}): ${stamp} 監控結果`);
+
+for (let i = 1; i <= 4; i++) {
+  try {
+    git('pull', '--rebase', '--autostash');
+    git('push');
+    console.log('已推送');
+    process.exit(0);
+  } catch (e) {
+    console.warn(`推送失敗（第 ${i} 次），稍後重試`);
+    execFileSync(process.execPath, ['-e', `setTimeout(()=>{}, ${3000 * i})`]);
+  }
+}
+console.error('推送失敗');
+process.exit(1);
