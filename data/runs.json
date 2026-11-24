@@ -1,0 +1,14 @@
+[
+ {
+  "at": "2026-11-24T07:21:03.280Z",
+  "trigger": "push",
+  "durationMs": 121730,
+  "watched": 75,
+  "abnormal": 14,
+  "delayed": 0,
+  "noData": 0,
+  "sourceError": 30,
+  "notify": 0,
+  "discordSent": 0
+ }
+]
