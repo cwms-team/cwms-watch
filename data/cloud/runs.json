@@ -1,6 +1,19 @@
 [
  {
   "source": "cloud",
+  "at": "2026-11-25T09:55:04.372Z",
+  "trigger": "auto",
+  "durationMs": 50881,
+  "watched": 45,
+  "abnormal": 16,
+  "delayed": 0,
+  "noData": 0,
+  "sourceError": 0,
+  "notify": 0,
+  "discordSent": 0
+ },
+ {
+  "source": "cloud",
   "at": "2026-11-25T09:25:47.554Z",
   "trigger": "auto",
   "durationMs": 95486,
