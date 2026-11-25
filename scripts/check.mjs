@@ -11,7 +11,8 @@ const P = (f) => join(ROOT, f);
 
 const DELAY_MINUTES = Number(process.env.DELAY_MINUTES || 180);   // 監測時間落後超過 3 小時
 const WEBHOOK = (process.env.DISCORD_WEBHOOK_URL || '').trim();
-const TRIGGER = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch' ? 'manual'
+const TRIGGER = process.env.TRIGGER_LABEL ? process.env.TRIGGER_LABEL
+  : process.env.GITHUB_EVENT_NAME === 'workflow_dispatch' ? 'manual'
   : process.env.GITHUB_EVENT_NAME === 'schedule' ? 'schedule' : (process.env.GITHUB_EVENT_NAME || 'local');
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_RUNS = 96;
