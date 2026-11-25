@@ -477,7 +477,7 @@ function renderOps() {
 }
 
 function renderRuns() {
-  const tr = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機' };
+  const tr = { schedule: '排程', manual: '手動', push: '名單更新', local: '本機', auto: '自動' };
   $('#runsBody').innerHTML = RUNS.length ? RUNS.slice(0, 48).map((r) => `<tr><td>${fmt(r.at)}</td><td>${r.source === 'local' ? '本機' : '雲端'}</td><td>${tr[r.trigger] || esc(r.trigger)}</td><td>${r.watched}</td><td>${r.abnormal}${r.sourceError ? ` <span style="color:var(--muted)">(+${r.sourceError} 失敗)</span>` : ''}</td><td>${r.discordSent ? '✓' : '–'}</td></tr>`).join('')
     : '<tr><td colspan="6" style="color:var(--muted)">尚無紀錄</td></tr>';
 }
