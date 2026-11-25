@@ -1,8 +1,8 @@
 {
  "source": "local",
- "checkedAt": "2026-11-25T15:22:20.674Z",
+ "checkedAt": "2026-11-25T15:52:24.457Z",
  "trigger": "auto",
- "durationMs": 27796,
+ "durationMs": 28377,
  "delayMinutes": 180,
  "discordConfigured": true,
  "totals": {
@@ -31,12 +31,12 @@
    "company": "賀山興業有限公司",
    "details": [],
    "rowCount": 7,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:53.411Z",
+   "checkedAt": "2026-11-25T15:51:56.880Z",
    "changedAt": "2026-11-25T00:27:36.135Z"
   },
   {
@@ -45,12 +45,12 @@
    "company": "榮樹實業股份有限公司三廠",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:54.014Z",
+   "checkedAt": "2026-11-25T15:51:57.487Z",
    "changedAt": "2026-11-25T00:27:36.840Z"
   },
   {
@@ -59,12 +59,12 @@
    "company": "展興企業社",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:54.592Z",
+   "checkedAt": "2026-11-25T15:51:58.088Z",
    "changedAt": "2026-11-25T00:27:37.510Z"
   },
   {
@@ -73,12 +73,12 @@
    "company": "昌暉五金企業有限公司二廠",
    "details": [],
    "rowCount": 9,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:55.245Z",
+   "checkedAt": "2026-11-25T15:51:58.764Z",
    "changedAt": "2026-11-25T00:27:38.133Z"
   },
   {
@@ -87,12 +87,12 @@
    "company": "岱屴鑫企業有限公司",
    "details": [],
    "rowCount": 9,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:55.968Z",
+   "checkedAt": "2026-11-25T15:51:59.508Z",
    "changedAt": "2026-11-25T00:27:38.731Z"
   },
   {
@@ -101,12 +101,12 @@
    "company": "源大興業有限公司",
    "details": [],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:56.542Z",
+   "checkedAt": "2026-11-25T15:52:00.206Z",
    "changedAt": "2026-11-25T00:27:39.292Z"
   },
   {
@@ -115,12 +115,12 @@
    "company": "達富興業有限公司",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:57.145Z",
+   "checkedAt": "2026-11-25T15:52:00.982Z",
    "changedAt": "2026-11-25T00:27:40.040Z"
   },
   {
@@ -129,12 +129,12 @@
    "company": "群天企業有限公司",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:57.803Z",
+   "checkedAt": "2026-11-25T15:52:01.657Z",
    "changedAt": "2026-11-25T00:27:40.761Z"
   },
   {
@@ -146,7 +146,7 @@
      "location": "D01   D01監視槽出流",
      "item": "導電度",
      "date": "1151125",
-     "time": "2310",
+     "time": "2345",
      "value": "1031.25",
      "standard": "----",
      "unit": "umho/cm",
@@ -158,12 +158,12 @@
     }
    ],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：無效值",
-   "checkedAt": "2026-11-25T15:21:58.389Z",
+   "checkedAt": "2026-11-25T15:52:02.333Z",
    "changedAt": "2026-11-25T14:21:59.040Z"
   },
   {
@@ -172,12 +172,12 @@
    "company": "春天種牛畜牧場",
    "details": [],
    "rowCount": 34,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:21:59.897Z",
+   "checkedAt": "2026-11-25T15:52:03.833Z",
    "changedAt": "2026-11-25T06:54:53.593Z"
   },
   {
@@ -186,12 +186,12 @@
    "company": "粘金治畜牧場",
    "details": [],
    "rowCount": 31,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:01.472Z",
+   "checkedAt": "2026-11-25T15:52:05.437Z",
    "changedAt": "2026-11-25T13:52:02.067Z"
   },
   {
@@ -203,8 +203,8 @@
      "location": "D01   放流口",
      "item": "水溫",
      "date": "1151125",
-     "time": "2310",
-     "value": "17.572",
+     "time": "2340",
+     "value": "17.618",
      "standard": "35℃以下(10~4月)38℃以下(5~9月)海放42℃以下",
      "unit": "℃",
      "status": "超限值",
@@ -215,12 +215,12 @@
     }
    ],
    "rowCount": 41,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:03.394Z",
+   "checkedAt": "2026-11-25T15:52:07.222Z",
    "changedAt": "2026-11-25T04:54:59.044Z"
   },
   {
@@ -232,8 +232,8 @@
      "location": "A01-10T01-10濾桶出流/回收水",
      "item": "水溫",
      "date": "1151125",
-     "time": "2315",
-     "value": "19.63",
+     "time": "2345",
+     "value": "19.50",
      "standard": "----",
      "unit": "℃",
      "status": "超限值",
@@ -244,12 +244,12 @@
     }
    ],
    "rowCount": 10,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:03.973Z",
+   "checkedAt": "2026-11-25T15:52:07.822Z",
    "changedAt": "2026-11-25T00:27:47.041Z"
   },
   {
@@ -258,12 +258,12 @@
    "company": "品質種牛畜牧場",
    "details": [],
    "rowCount": 47,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:05.973Z",
+   "checkedAt": "2026-11-25T15:52:09.713Z",
    "changedAt": "2026-11-25T14:52:06.987Z"
   },
   {
@@ -275,7 +275,7 @@
      "location": "A01-08調勻槽",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2310",
+     "time": "2340",
      "value": "0",
      "standard": "----",
      "unit": "",
@@ -289,7 +289,7 @@
      "location": "A01-12厭氧槽4",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2310",
+     "time": "2340",
      "value": "0",
      "standard": "----",
      "unit": "",
@@ -303,7 +303,7 @@
      "location": "B01-01初級沉澱池1",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2310",
+     "time": "2340",
      "value": "0",
      "standard": "----",
      "unit": "",
@@ -317,8 +317,8 @@
      "location": "B01-05原水槽2",
      "item": "氫離子濃度指數",
      "date": "1151125",
-     "time": "2310",
-     "value": "4.392",
+     "time": "2340",
+     "value": "4.223",
      "standard": "----",
      "unit": "",
      "status": "超限值",
@@ -331,7 +331,7 @@
      "location": "B01-23活性污泥曝氣槽3",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2310",
+     "time": "2340",
      "value": "0",
      "standard": "----",
      "unit": "",
@@ -345,7 +345,7 @@
      "location": "D01   放流口",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2310",
+     "time": "2340",
      "value": "0",
      "standard": "999999",
      "unit": "",
@@ -357,12 +357,12 @@
     }
    ],
    "rowCount": 50,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "6 筆異常：無效值、超限值",
-   "checkedAt": "2026-11-25T15:22:07.880Z",
+   "checkedAt": "2026-11-25T15:52:11.574Z",
    "changedAt": "2026-11-25T07:55:02.248Z"
   },
   {
@@ -371,12 +371,12 @@
    "company": "恆欣預拌混凝土有限公司",
    "details": [],
    "rowCount": 9,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:08.533Z",
+   "checkedAt": "2026-11-25T15:52:12.286Z",
    "changedAt": "2026-11-25T00:27:53.419Z"
   },
   {
@@ -385,12 +385,12 @@
    "company": "鴻勁富企業社",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:09.138Z",
+   "checkedAt": "2026-11-25T15:52:12.894Z",
    "changedAt": "2026-11-25T00:27:54.525Z"
   },
   {
@@ -399,12 +399,12 @@
    "company": "吉福畜牧場",
    "details": [],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:09.706Z",
+   "checkedAt": "2026-11-25T15:52:13.444Z",
    "changedAt": "2026-11-25T09:54:23.968Z"
   },
   {
@@ -413,12 +413,12 @@
    "company": "玴捷工業有限公司二廠",
    "details": [],
    "rowCount": 17,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:10.662Z",
+   "checkedAt": "2026-11-25T15:52:14.383Z",
    "changedAt": "2026-11-25T00:27:56.265Z"
   },
   {
@@ -430,8 +430,8 @@
      "location": "A01-15厭氣池12",
      "item": "氫離子濃度指數",
      "date": "1151125",
-     "time": "2310",
-     "value": "4.807",
+     "time": "2345",
+     "value": "4.777",
      "standard": "----",
      "unit": "",
      "status": "超限值",
@@ -442,12 +442,12 @@
     }
    ],
    "rowCount": 34,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:12.231Z",
+   "checkedAt": "2026-11-25T15:52:16.022Z",
    "changedAt": "2026-11-25T06:55:08.874Z"
   },
   {
@@ -459,8 +459,8 @@
      "location": "D01   放流口",
      "item": "氫離子濃度指數",
      "date": "1151125",
-     "time": "2310",
-     "value": "2.188",
+     "time": "2340",
+     "value": "2.699",
      "standard": "6~9",
      "unit": "",
      "status": "超限值",
@@ -471,12 +471,12 @@
     }
    ],
    "rowCount": 38,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:13.941Z",
+   "checkedAt": "2026-11-25T15:52:17.509Z",
    "changedAt": "2026-11-25T13:52:14.461Z"
   },
   {
@@ -496,7 +496,7 @@
      "type": "事業",
      "illegal": "是",
      "delayed": true,
-     "delayMinutes": 327,
+     "delayMinutes": 357,
      "notify": true
     },
     {
@@ -511,7 +511,7 @@
      "type": "事業",
      "illegal": "是",
      "delayed": true,
-     "delayMinutes": 327,
+     "delayMinutes": 357,
      "notify": true
     },
     {
@@ -526,7 +526,7 @@
      "type": "事業",
      "illegal": "是",
      "delayed": true,
-     "delayMinutes": 327,
+     "delayMinutes": 357,
      "notify": true
     },
     {
@@ -541,7 +541,7 @@
      "type": "事業",
      "illegal": "是",
      "delayed": true,
-     "delayMinutes": 327,
+     "delayMinutes": 357,
      "notify": true
     },
     {
@@ -556,17 +556,17 @@
      "type": "事業",
      "illegal": "是",
      "delayed": true,
-     "delayMinutes": 327,
+     "delayMinutes": 357,
      "notify": true
     }
    ],
    "rowCount": 5,
    "lastDataAt": "2026-11-25T09:55:00.000Z",
-   "maxDelayMinutes": 327,
+   "maxDelayMinutes": 357,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "5 筆異常：監測資料延遲超過 3 小時",
-   "checkedAt": "2026-11-25T15:22:14.504Z",
+   "checkedAt": "2026-11-25T15:52:18.063Z",
    "changedAt": "2026-11-25T13:22:14.938Z"
   },
   {
@@ -578,8 +578,8 @@
      "location": "T01-12放流槽",
      "item": "水溫",
      "date": "1151125",
-     "time": "2315",
-     "value": "39.88",
+     "time": "2345",
+     "value": "40.09",
      "standard": "----",
      "unit": "℃",
      "status": "超限值",
@@ -590,12 +590,12 @@
     }
    ],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:15.059Z",
+   "checkedAt": "2026-11-25T15:52:18.616Z",
    "changedAt": "2026-11-25T11:24:32.483Z"
   },
   {
@@ -604,12 +604,12 @@
    "company": "美崙工業股份有限公司",
    "details": [],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:10:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:15.620Z",
+   "checkedAt": "2026-11-25T15:52:19.291Z",
    "changedAt": "2026-11-25T02:18:26.833Z"
   },
   {
@@ -618,12 +618,12 @@
    "company": "印昇股份有限公司",
    "details": [],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:16.187Z",
+   "checkedAt": "2026-11-25T15:52:19.901Z",
    "changedAt": "2026-11-25T00:28:01.978Z"
   },
   {
@@ -632,12 +632,12 @@
    "company": "台灣自來水股份有限公司第十一區管理處彰化給水廠嘉興淨水場",
    "details": [],
    "rowCount": 4,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:40:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:16.751Z",
+   "checkedAt": "2026-11-25T15:52:20.488Z",
    "changedAt": "2026-11-25T00:28:02.636Z"
   },
   {
@@ -646,12 +646,12 @@
    "company": "金亨泰企業有限公司",
    "details": [],
    "rowCount": 8,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:17.393Z",
+   "checkedAt": "2026-11-25T15:52:21.168Z",
    "changedAt": "2026-11-25T00:28:04.049Z"
   },
   {
@@ -660,12 +660,12 @@
    "company": "廣德牧場",
    "details": [],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:20:00.000Z",
+   "lastDataAt": "2026-11-25T15:50:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-25T15:22:17.966Z",
+   "checkedAt": "2026-11-25T15:52:21.756Z",
    "changedAt": "2026-11-25T00:28:04.596Z"
   },
   {
@@ -677,8 +677,8 @@
      "location": "T01-06兼氣水解槽(2)",
      "item": "氫離子濃度指數",
      "date": "1151125",
-     "time": "2315",
-     "value": "4.85",
+     "time": "2345",
+     "value": "4.87",
      "standard": "----",
      "unit": "",
      "status": "超限值",
@@ -689,12 +689,12 @@
     }
    ],
    "rowCount": 42,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-25T15:22:19.790Z",
+   "checkedAt": "2026-11-25T15:52:23.570Z",
    "changedAt": "2026-11-25T00:28:07.358Z"
   },
   {
@@ -706,7 +706,7 @@
      "location": "D01   放流口",
      "item": "攝錄影機",
      "date": "1151125",
-     "time": "2315",
+     "time": "2345",
      "value": "222",
      "standard": "9999",
      "unit": "",
@@ -718,12 +718,12 @@
     }
    ],
    "rowCount": 5,
-   "lastDataAt": "2026-11-25T15:15:00.000Z",
+   "lastDataAt": "2026-11-25T15:45:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：無效值",
-   "checkedAt": "2026-11-25T15:22:20.346Z",
+   "checkedAt": "2026-11-25T15:52:24.114Z",
    "changedAt": "2026-11-25T00:28:07.900Z"
   }
  ]
