@@ -1,13 +1,19 @@
 name: CWMS 監控
 
 # 雲端（GitHub 主機）：台中、雲林、苗栗、南投
+# 平常由本機計時器（monitor-local.yml）每 30 分鐘觸發；cron 只是電腦關機時的備援。
 on:
   schedule:
     - cron: '7,37 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: '觸發來源'
+        required: false
+        default: 'manual'
   push:
     branches: [main]
-    paths: ['config/watchlist.json', 'scripts/**']
+    paths: ['config/watchlist.json']
 
 permissions:
   contents: write
@@ -24,6 +30,7 @@ jobs:
       RUN_NAME: cloud
       ONLY_REGIONS: taichung,yunlin,miaoli,nantou
       DELAY_MINUTES: '180'
+      TRIGGER_LABEL: ${{ inputs.reason }}
     steps:
       - uses: actions/checkout@v4
 

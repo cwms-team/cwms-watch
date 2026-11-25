@@ -1,26 +1,33 @@
 name: CWMS 監控（本機）
 
-# 本機電腦（self-hosted runner）：彰化（GitHub 主機連不到彰化環保局網站）
-# 電腦關機時排程會排隊；新的一次會取代還沒開始的舊排程，不會堆積。
+# 在本機電腦（self-hosted runner）上持續執行的計時器：
+# 每 30 分鐘檢查彰化，並觸發雲端 workflow 檢查其他四縣市。
+# 每 6 小時自動重新啟動一次；cron 只是在計時器中斷時把它叫回來。
 on:
   schedule:
-    - cron: '12,42 * * * *'
-  workflow_dispatch: {}
+    - cron: '12 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: '觸發來源'
+        required: false
+        default: 'manual'
   push:
     branches: [main]
-    paths: ['config/watchlist.json', 'scripts/**']
+    paths: ['config/watchlist.json', 'scripts/**', '.github/workflows/**']
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: cwms-monitor-local
   cancel-in-progress: true
 
 jobs:
-  check:
+  timer:
     runs-on: self-hosted
-    timeout-minutes: 15
+    timeout-minutes: 400
     defaults:
       run:
         shell: cmd
@@ -28,6 +35,8 @@ jobs:
       RUN_NAME: local
       ONLY_REGIONS: changhua
       DELAY_MINUTES: '180'
+      INTERVAL_MINUTES: '30'
+      LOOP_HOURS: '6'
     steps:
       - uses: actions/checkout@v4
 
@@ -35,10 +44,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: 檢查 CWMS 公開資料
-        run: node scripts/check.mjs
+      - name: 每 30 分鐘檢查（彰化本機 + 觸發雲端四縣市）
+        run: node scripts/loop.mjs
         env:
+          GITHUB_TOKEN: ${{ github.token }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-
-      - name: 儲存結果
-        run: node scripts/commit.mjs
