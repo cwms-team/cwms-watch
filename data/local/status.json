@@ -1,8 +1,8 @@
 {
  "source": "local",
- "checkedAt": "2026-11-25T19:21:33.535Z",
+ "checkedAt": "2026-11-25T19:51:36.268Z",
  "trigger": "auto",
- "durationMs": 16905,
+ "durationMs": 16280,
  "delayMinutes": 180,
  "discordConfigured": true,
  "totals": {
@@ -33,7 +33,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:17.376Z",
+   "checkedAt": "2026-11-25T19:51:20.761Z",
    "changedAt": "2026-11-25T19:21:17.376Z"
   },
   {
@@ -44,7 +44,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:17.864Z",
+   "checkedAt": "2026-11-25T19:51:21.304Z",
    "changedAt": "2026-11-25T19:21:17.864Z"
   },
   {
@@ -55,7 +55,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:18.364Z",
+   "checkedAt": "2026-11-25T19:51:21.811Z",
    "changedAt": "2026-11-25T19:21:18.364Z"
   },
   {
@@ -66,7 +66,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:18.850Z",
+   "checkedAt": "2026-11-25T19:51:22.308Z",
    "changedAt": "2026-11-25T19:21:18.850Z"
   },
   {
@@ -77,7 +77,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:19.400Z",
+   "checkedAt": "2026-11-25T19:51:22.812Z",
    "changedAt": "2026-11-25T19:21:19.400Z"
   },
   {
@@ -88,7 +88,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:19.915Z",
+   "checkedAt": "2026-11-25T19:51:23.370Z",
    "changedAt": "2026-11-25T19:21:19.915Z"
   },
   {
@@ -99,7 +99,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:20.464Z",
+   "checkedAt": "2026-11-25T19:51:23.858Z",
    "changedAt": "2026-11-25T19:21:20.464Z"
   },
   {
@@ -110,7 +110,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:20.969Z",
+   "checkedAt": "2026-11-25T19:51:24.325Z",
    "changedAt": "2026-11-25T19:21:20.969Z"
   },
   {
@@ -121,7 +121,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:21.465Z",
+   "checkedAt": "2026-11-25T19:51:24.872Z",
    "changedAt": "2026-11-25T19:21:21.465Z"
   },
   {
@@ -132,7 +132,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:21.976Z",
+   "checkedAt": "2026-11-25T19:51:25.445Z",
    "changedAt": "2026-11-25T19:21:21.976Z"
   },
   {
@@ -143,7 +143,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:22.480Z",
+   "checkedAt": "2026-11-25T19:51:25.940Z",
    "changedAt": "2026-11-25T19:21:22.480Z"
   },
   {
@@ -154,7 +154,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:22.981Z",
+   "checkedAt": "2026-11-25T19:51:26.475Z",
    "changedAt": "2026-11-25T19:21:22.981Z"
   },
   {
@@ -165,7 +165,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:23.469Z",
+   "checkedAt": "2026-11-25T19:51:27.022Z",
    "changedAt": "2026-11-25T19:21:23.469Z"
   },
   {
@@ -176,7 +176,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:23.966Z",
+   "checkedAt": "2026-11-25T19:51:27.517Z",
    "changedAt": "2026-11-25T19:21:23.966Z"
   },
   {
@@ -187,7 +187,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:24.464Z",
+   "checkedAt": "2026-11-25T19:51:28.032Z",
    "changedAt": "2026-11-25T19:21:24.464Z"
   },
   {
@@ -198,7 +198,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:24.969Z",
+   "checkedAt": "2026-11-25T19:51:28.573Z",
    "changedAt": "2026-11-25T19:21:24.969Z"
   },
   {
@@ -209,7 +209,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:25.484Z",
+   "checkedAt": "2026-11-25T19:51:29.162Z",
    "changedAt": "2026-11-25T19:21:25.484Z"
   },
   {
@@ -220,7 +220,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:25.960Z",
+   "checkedAt": "2026-11-25T19:51:29.641Z",
    "changedAt": "2026-11-25T19:21:25.960Z"
   },
   {
@@ -231,7 +231,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:26.500Z",
+   "checkedAt": "2026-11-25T19:51:30.159Z",
    "changedAt": "2026-11-25T19:21:26.500Z"
   },
   {
@@ -242,7 +242,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:26.970Z",
+   "checkedAt": "2026-11-25T19:51:30.659Z",
    "changedAt": "2026-11-25T19:21:26.970Z"
   },
   {
@@ -253,7 +253,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:27.459Z",
+   "checkedAt": "2026-11-25T19:51:31.174Z",
    "changedAt": "2026-11-25T19:21:27.459Z"
   },
   {
@@ -264,7 +264,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:27.939Z",
+   "checkedAt": "2026-11-25T19:51:31.740Z",
    "changedAt": "2026-11-25T19:21:27.939Z"
   },
   {
@@ -275,7 +275,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:28.406Z",
+   "checkedAt": "2026-11-25T19:51:32.235Z",
    "changedAt": "2026-11-25T19:21:28.406Z"
   },
   {
@@ -286,7 +286,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:28.952Z",
+   "checkedAt": "2026-11-25T19:51:32.744Z",
    "changedAt": "2026-11-25T19:21:28.952Z"
   },
   {
@@ -297,7 +297,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:29.421Z",
+   "checkedAt": "2026-11-25T19:51:33.242Z",
    "changedAt": "2026-11-25T19:21:29.421Z"
   },
   {
@@ -308,7 +308,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:29.906Z",
+   "checkedAt": "2026-11-25T19:51:33.792Z",
    "changedAt": "2026-11-25T19:21:29.906Z"
   },
   {
@@ -319,7 +319,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:30.382Z",
+   "checkedAt": "2026-11-25T19:51:34.303Z",
    "changedAt": "2026-11-25T19:21:30.382Z"
   },
   {
@@ -330,7 +330,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:30.921Z",
+   "checkedAt": "2026-11-25T19:51:34.846Z",
    "changedAt": "2026-11-25T19:21:30.921Z"
   },
   {
@@ -341,7 +341,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:31.466Z",
+   "checkedAt": "2026-11-25T19:51:35.464Z",
    "changedAt": "2026-11-25T19:21:31.466Z"
   },
   {
@@ -352,7 +352,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-25T19:21:32.029Z",
+   "checkedAt": "2026-11-25T19:51:35.943Z",
    "changedAt": "2026-11-25T19:21:32.029Z"
   }
  ]
