@@ -1,6 +1,19 @@
 [
  {
   "source": "local",
+  "at": "2026-11-26T22:00:09.441Z",
+  "trigger": "auto",
+  "durationMs": 32042,
+  "watched": 30,
+  "abnormal": 7,
+  "delayed": 0,
+  "noData": 1,
+  "sourceError": 0,
+  "notify": 1,
+  "discordSent": 1
+ },
+ {
+  "source": "local",
   "at": "2026-11-26T21:30:07.557Z",
   "trigger": "auto",
   "durationMs": 30284,
