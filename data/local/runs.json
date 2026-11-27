@@ -1,6 +1,19 @@
 [
  {
   "source": "local",
+  "at": "2026-11-27T06:39:17.592Z",
+  "trigger": "auto",
+  "durationMs": 31690,
+  "watched": 30,
+  "abnormal": 6,
+  "delayed": 0,
+  "noData": 0,
+  "sourceError": 0,
+  "notify": 1,
+  "discordSent": 1
+ },
+ {
+  "source": "local",
   "at": "2026-11-27T06:09:19.390Z",
   "trigger": "auto",
   "durationMs": 33563,
@@ -1232,19 +1245,6 @@
   "noData": 0,
   "sourceError": 0,
   "notify": 0,
-  "discordSent": 1
- },
- {
-  "source": "local",
-  "at": "2026-11-25T07:55:18.528Z",
-  "trigger": "auto",
-  "durationMs": 32584,
-  "watched": 30,
-  "abnormal": 8,
-  "delayed": 0,
-  "noData": 0,
-  "sourceError": 0,
-  "notify": 1,
   "discordSent": 1
  }
 ]
