@@ -1,17 +1,17 @@
 {
  "source": "local",
- "checkedAt": "2026-11-27T20:38:59.909Z",
+ "checkedAt": "2026-11-27T21:09:07.759Z",
  "trigger": "auto",
- "durationMs": 15747,
+ "durationMs": 23644,
  "delayMinutes": 180,
  "discordConfigured": true,
  "totals": {
   "watched": 30,
-  "abnormal": 0,
+  "abnormal": 2,
   "delayed": 0,
-  "noData": 30,
+  "noData": 17,
   "sourceError": 0,
-  "notify": 30
+  "notify": 17
  },
  "regions": [
   {
@@ -33,7 +33,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:44.513Z",
+   "checkedAt": "2026-11-27T21:08:44.499Z",
    "changedAt": "2026-11-27T19:08:44.384Z"
   },
   {
@@ -41,11 +41,14 @@
    "cno": "N08A5010",
    "company": "榮樹實業股份有限公司三廠",
    "details": [],
-   "state": "no_data",
+   "rowCount": 6,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:45.022Z",
-   "changedAt": "2026-11-27T19:08:45.428Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:45.903Z",
+   "changedAt": "2026-11-27T21:08:45.903Z"
   },
   {
    "region": "changhua",
@@ -55,7 +58,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:45.574Z",
+   "checkedAt": "2026-11-27T21:08:46.395Z",
    "changedAt": "2026-11-27T19:08:45.907Z"
   },
   {
@@ -66,7 +69,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:46.131Z",
+   "checkedAt": "2026-11-27T21:08:46.878Z",
    "changedAt": "2026-11-27T19:08:46.390Z"
   },
   {
@@ -77,7 +80,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:46.622Z",
+   "checkedAt": "2026-11-27T21:08:47.357Z",
    "changedAt": "2026-11-27T19:08:46.867Z"
   },
   {
@@ -88,7 +91,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:47.113Z",
+   "checkedAt": "2026-11-27T21:08:47.918Z",
    "changedAt": "2026-11-27T19:08:47.412Z"
   },
   {
@@ -96,22 +99,28 @@
    "cno": "N1207061",
    "company": "達富興業有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 6,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:47.611Z",
-   "changedAt": "2026-11-27T19:08:47.966Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:48.659Z",
+   "changedAt": "2026-11-27T21:08:48.659Z"
   },
   {
    "region": "changhua",
    "cno": "N1500021",
    "company": "群天企業有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 6,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:48.174Z",
-   "changedAt": "2026-11-27T19:08:48.493Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:49.391Z",
+   "changedAt": "2026-11-27T21:08:49.391Z"
   },
   {
    "region": "changhua",
@@ -121,7 +130,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:48.662Z",
+   "checkedAt": "2026-11-27T21:08:49.961Z",
    "changedAt": "2026-11-27T19:08:48.955Z"
   },
   {
@@ -132,7 +141,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:49.163Z",
+   "checkedAt": "2026-11-27T21:08:51.016Z",
    "changedAt": "2026-11-27T19:08:49.476Z"
   },
   {
@@ -143,7 +152,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:49.737Z",
+   "checkedAt": "2026-11-27T21:08:51.504Z",
    "changedAt": "2026-11-27T19:08:50.533Z"
   },
   {
@@ -154,7 +163,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:50.223Z",
+   "checkedAt": "2026-11-27T21:08:51.981Z",
    "changedAt": "2026-11-27T19:08:51.033Z"
   },
   {
@@ -162,11 +171,14 @@
    "cno": "N1706461",
    "company": "玴捷工業有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 8,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:50.728Z",
-   "changedAt": "2026-11-27T19:08:51.507Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:52.541Z",
+   "changedAt": "2026-11-27T21:08:52.541Z"
   },
   {
    "region": "changhua",
@@ -176,7 +188,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:51.303Z",
+   "checkedAt": "2026-11-27T21:08:53.046Z",
    "changedAt": "2026-11-27T19:08:52.044Z"
   },
   {
@@ -187,7 +199,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:51.804Z",
+   "checkedAt": "2026-11-27T21:08:53.758Z",
    "changedAt": "2026-11-27T19:08:52.540Z"
   },
   {
@@ -195,22 +207,28 @@
    "cno": "N1708965",
    "company": "恆欣預拌混凝土有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 9,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:52.380Z",
-   "changedAt": "2026-11-27T19:08:53.028Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:55.121Z",
+   "changedAt": "2026-11-27T21:08:55.121Z"
   },
   {
    "region": "changhua",
    "cno": "N17A0049",
    "company": "鴻勁富企業社",
    "details": [],
-   "state": "no_data",
+   "rowCount": 6,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:52.906Z",
-   "changedAt": "2026-11-27T19:08:54.399Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:55.707Z",
+   "changedAt": "2026-11-27T21:08:55.707Z"
   },
   {
    "region": "changhua",
@@ -220,7 +238,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:53.475Z",
+   "checkedAt": "2026-11-27T21:08:56.195Z",
    "changedAt": "2026-11-27T19:08:55.114Z"
   },
   {
@@ -228,11 +246,14 @@
    "cno": "N17A0742",
    "company": "玴捷工業有限公司二廠",
    "details": [],
-   "state": "no_data",
+   "rowCount": 13,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:53.956Z",
-   "changedAt": "2026-11-27T19:08:55.588Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:57.631Z",
+   "changedAt": "2026-11-27T21:08:57.631Z"
   },
   {
    "region": "changhua",
@@ -242,7 +263,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:54.450Z",
+   "checkedAt": "2026-11-27T21:08:58.113Z",
    "changedAt": "2026-11-27T19:08:56.586Z"
   },
   {
@@ -253,7 +274,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:55.016Z",
+   "checkedAt": "2026-11-27T21:08:58.606Z",
    "changedAt": "2026-11-27T19:08:57.101Z"
   },
   {
@@ -264,7 +285,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:55.501Z",
+   "checkedAt": "2026-11-27T21:08:59.102Z",
    "changedAt": "2026-11-27T19:08:57.662Z"
   },
   {
@@ -272,33 +293,42 @@
    "cno": "N1804239",
    "company": "茂田精密有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 5,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:56.012Z",
-   "changedAt": "2026-11-27T19:08:58.141Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:08:59.642Z",
+   "changedAt": "2026-11-27T21:08:59.642Z"
   },
   {
    "region": "changhua",
    "cno": "N1804300",
    "company": "美崙工業股份有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 5,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:56.496Z",
-   "changedAt": "2026-11-27T19:08:58.703Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:09:00.250Z",
+   "changedAt": "2026-11-27T21:09:00.250Z"
   },
   {
    "region": "changhua",
    "cno": "N1905053",
    "company": "印昇股份有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 5,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:57.004Z",
-   "changedAt": "2026-11-27T19:08:59.174Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:09:00.782Z",
+   "changedAt": "2026-11-27T21:09:00.782Z"
   },
   {
    "region": "changhua",
@@ -308,7 +338,7 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:57.509Z",
+   "checkedAt": "2026-11-27T21:09:01.285Z",
    "changedAt": "2026-11-27T19:08:59.730Z"
   },
   {
@@ -316,11 +346,14 @@
    "cno": "N2205203",
    "company": "金亨泰企業有限公司",
    "details": [],
-   "state": "no_data",
+   "rowCount": 6,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "normal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:58.104Z",
-   "changedAt": "2026-11-27T19:09:00.262Z"
+   "summary": "正常",
+   "checkedAt": "2026-11-27T21:09:01.842Z",
+   "changedAt": "2026-11-27T21:09:01.842Z"
   },
   {
    "region": "changhua",
@@ -330,30 +363,66 @@
    "state": "no_data",
    "sourceErrorStreak": 0,
    "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:58.595Z",
+   "checkedAt": "2026-11-27T21:09:02.487Z",
    "changedAt": "2026-11-27T19:09:00.806Z"
   },
   {
    "region": "changhua",
    "cno": "N2806148",
    "company": "東杭畜產有限公司",
-   "details": [],
-   "state": "no_data",
+   "details": [
+    {
+     "location": "T01-06兼氣水解槽(2)",
+     "item": "氫離子濃度指數",
+     "date": "1151128",
+     "time": "0255",
+     "value": "5.07",
+     "standard": "----",
+     "unit": "",
+     "status": "超限值",
+     "type": "事業",
+     "illegal": "是",
+     "delayed": false,
+     "notify": false
+    }
+   ],
+   "rowCount": 42,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "abnormal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:59.073Z",
-   "changedAt": "2026-11-27T19:09:01.970Z"
+   "summary": "1 筆異常：超限值",
+   "checkedAt": "2026-11-27T21:09:04.405Z",
+   "changedAt": "2026-11-27T21:09:04.405Z"
   },
   {
    "region": "changhua",
    "cno": "N2900909",
    "company": "永勝畜牧場",
-   "details": [],
-   "state": "no_data",
+   "details": [
+    {
+     "location": "D01   放流口",
+     "item": "攝錄影機",
+     "date": "1151128",
+     "time": "0255",
+     "value": "222",
+     "standard": "9999",
+     "unit": "",
+     "status": "無效值",
+     "type": "事業",
+     "illegal": "是",
+     "delayed": false,
+     "notify": false
+    }
+   ],
+   "rowCount": 5,
+   "lastDataAt": "2026-11-27T18:55:00.000Z",
+   "maxDelayMinutes": 0,
+   "state": "abnormal",
    "sourceErrorStreak": 0,
-   "summary": "No data（查無監測資料）",
-   "checkedAt": "2026-11-27T20:38:59.581Z",
-   "changedAt": "2026-11-27T19:09:02.532Z"
+   "summary": "1 筆異常：無效值",
+   "checkedAt": "2026-11-27T21:09:06.284Z",
+   "changedAt": "2026-11-27T21:09:06.284Z"
   }
  ]
 }
