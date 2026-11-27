@@ -1,53 +1,38 @@
 {
  "changhua:N07A8534": [
-  "nodata"
+  "delay"
+ ],
+ "changhua:N08A5010": [
+  "delay"
  ],
  "changhua:N0912894": [
-  "nodata"
+  "delay"
  ],
  "changhua:N09A2774": [
-  "nodata"
+  "delay"
  ],
- "changhua:N1007150": [
-  "nodata"
+ "changhua:N1207061": [
+  "delay"
  ],
- "changhua:N1008371": [
-  "nodata"
+ "changhua:N1500021": [
+  "delay"
  ],
  "changhua:N1607285": [
-  "nodata"
+  "delay"
  ],
- "changhua:N1703719": [
-  "nodata"
+ "changhua:N1706461": [
+  "delay"
  ],
- "changhua:N1706390": [
-  "nodata"
+ "changhua:N17A0049": [
+  "delay"
  ],
- "changhua:N1706407": [
-  "nodata"
- ],
- "changhua:N1708401": [
-  "nodata"
- ],
- "changhua:N1708625": [
-  "nodata"
- ],
- "changhua:N17A0138": [
-  "nodata"
- ],
- "changhua:N17A1700": [
-  "nodata"
- ],
- "changhua:N17A3172": [
-  "nodata"
+ "changhua:N17A0742": [
+  "delay"
  ],
  "changhua:N17A3330": [
   "nodata"
  ],
- "changhua:N2004288": [
-  "nodata"
- ],
- "changhua:N2800940": [
-  "nodata"
+ "changhua:N2205203": [
+  "delay"
  ]
 }
