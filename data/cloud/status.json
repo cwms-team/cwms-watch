@@ -1,8 +1,8 @@
 {
  "source": "cloud",
- "checkedAt": "2026-11-27T16:39:04.743Z",
+ "checkedAt": "2026-11-27T16:41:14.951Z",
  "trigger": "auto",
- "durationMs": 87281,
+ "durationMs": 112367,
  "delayMinutes": 180,
  "discordConfigured": true,
  "totals": {
@@ -63,7 +63,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:40.153Z",
+   "checkedAt": "2026-11-27T16:39:24.724Z",
    "changedAt": "2026-11-24T07:47:49.711Z"
   },
   {
@@ -176,7 +176,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "7 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:37:52.244Z",
+   "checkedAt": "2026-11-27T16:39:42.823Z",
    "changedAt": "2026-11-27T08:09:08.190Z"
   },
   {
@@ -190,7 +190,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:53.645Z",
+   "checkedAt": "2026-11-27T16:39:44.679Z",
    "changedAt": "2026-11-26T07:37:28.481Z"
   },
   {
@@ -204,7 +204,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:55.032Z",
+   "checkedAt": "2026-11-27T16:39:46.535Z",
    "changedAt": "2026-11-26T07:07:26.492Z"
   },
   {
@@ -247,7 +247,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "2 筆異常：無效值",
-   "checkedAt": "2026-11-27T16:37:56.565Z",
+   "checkedAt": "2026-11-27T16:39:48.401Z",
    "changedAt": "2026-11-27T10:08:43.821Z"
   },
   {
@@ -261,7 +261,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:58.046Z",
+   "checkedAt": "2026-11-27T16:39:50.461Z",
    "changedAt": "2026-11-26T08:07:25.468Z"
   },
   {
@@ -275,7 +275,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:00.412Z",
+   "checkedAt": "2026-11-27T16:39:53.409Z",
    "changedAt": "2026-11-24T07:48:02.454Z"
   },
   {
@@ -304,7 +304,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:38:01.940Z",
+   "checkedAt": "2026-11-27T16:39:55.265Z",
    "changedAt": "2026-11-27T15:37:53.327Z"
   },
   {
@@ -318,7 +318,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:03.412Z",
+   "checkedAt": "2026-11-27T16:39:57.122Z",
    "changedAt": "2026-11-24T07:48:04.092Z"
   },
   {
@@ -332,7 +332,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:04.950Z",
+   "checkedAt": "2026-11-27T16:39:58.880Z",
    "changedAt": "2026-11-24T07:48:05.752Z"
   },
   {
@@ -346,7 +346,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:06.338Z",
+   "checkedAt": "2026-11-27T16:40:00.592Z",
    "changedAt": "2026-11-24T07:48:07.175Z"
   },
   {
@@ -375,7 +375,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：無效值",
-   "checkedAt": "2026-11-27T16:38:07.864Z",
+   "checkedAt": "2026-11-27T16:40:02.451Z",
    "changedAt": "2026-11-25T04:25:28.680Z"
   },
   {
@@ -389,7 +389,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:09.488Z",
+   "checkedAt": "2026-11-27T16:40:04.698Z",
    "changedAt": "2026-11-27T12:08:47.466Z"
   },
   {
@@ -403,7 +403,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:10.847Z",
+   "checkedAt": "2026-11-27T16:40:06.353Z",
    "changedAt": "2026-11-24T07:48:11.662Z"
   },
   {
@@ -417,7 +417,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:12.380Z",
+   "checkedAt": "2026-11-27T16:40:08.221Z",
    "changedAt": "2026-11-24T07:48:13.185Z"
   },
   {
@@ -426,12 +426,12 @@
    "company": "御隆食品有限公司",
    "details": [],
    "rowCount": 6,
-   "lastDataAt": "2026-11-27T16:25:00.000Z",
+   "lastDataAt": "2026-11-27T16:30:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:13.999Z",
+   "checkedAt": "2026-11-27T16:40:09.927Z",
    "changedAt": "2026-11-27T08:39:33.892Z"
   },
   {
@@ -451,7 +451,7 @@
      "type": "事業",
      "illegal": "否",
      "delayed": true,
-     "delayMinutes": 218,
+     "delayMinutes": 220,
      "notify": true
     },
     {
@@ -466,7 +466,7 @@
      "type": "事業",
      "illegal": "否",
      "delayed": true,
-     "delayMinutes": 218,
+     "delayMinutes": 220,
      "notify": true
     },
     {
@@ -486,11 +486,11 @@
    ],
    "rowCount": 7,
    "lastDataAt": "2026-11-27T16:30:00.000Z",
-   "maxDelayMinutes": 218,
+   "maxDelayMinutes": 220,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "3 筆異常：監測資料延遲超過 3 小時、無效值",
-   "checkedAt": "2026-11-27T16:38:15.381Z",
+   "checkedAt": "2026-11-27T16:40:11.786Z",
    "changedAt": "2026-11-27T16:08:20.066Z"
   },
   {
@@ -504,7 +504,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:16.864Z",
+   "checkedAt": "2026-11-27T16:40:13.641Z",
    "changedAt": "2026-11-26T19:30:26.477Z"
   },
   {
@@ -518,7 +518,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:18.270Z",
+   "checkedAt": "2026-11-27T16:40:15.351Z",
    "changedAt": "2026-11-27T03:30:00.919Z"
   },
   {
@@ -687,8 +687,8 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "11 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:38:32.481Z",
-   "changedAt": "2026-11-27T16:38:32.481Z"
+   "checkedAt": "2026-11-27T16:40:33.367Z",
+   "changedAt": "2026-11-27T16:40:33.367Z"
   },
   {
    "region": "taichung",
@@ -701,7 +701,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:34.005Z",
+   "checkedAt": "2026-11-27T16:40:35.264Z",
    "changedAt": "2026-11-26T19:30:46.231Z"
   },
   {
@@ -715,7 +715,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:35.542Z",
+   "checkedAt": "2026-11-27T16:40:37.013Z",
    "changedAt": "2026-11-26T19:30:47.919Z"
   },
   {
@@ -729,7 +729,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:36.928Z",
+   "checkedAt": "2026-11-27T16:40:39.059Z",
    "changedAt": "2026-11-26T19:30:49.773Z"
   },
   {
@@ -743,7 +743,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:38.406Z",
+   "checkedAt": "2026-11-27T16:40:41.304Z",
    "changedAt": "2026-11-27T07:09:32.193Z"
   },
   {
@@ -926,7 +926,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "12 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:38:46.554Z",
+   "checkedAt": "2026-11-27T16:40:51.738Z",
    "changedAt": "2026-11-27T11:39:43.525Z"
   },
   {
@@ -940,7 +940,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:51.819Z",
+   "checkedAt": "2026-11-27T16:40:58.520Z",
    "changedAt": "2026-11-26T19:31:06.622Z"
   },
   {
@@ -954,7 +954,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:55.233Z",
+   "checkedAt": "2026-11-27T16:41:02.759Z",
    "changedAt": "2026-11-26T19:31:10.560Z"
   },
   {
@@ -968,7 +968,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:57.420Z",
+   "checkedAt": "2026-11-27T16:41:05.841Z",
    "changedAt": "2026-11-26T19:31:13.043Z"
   },
   {
@@ -982,7 +982,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:38:59.048Z",
+   "checkedAt": "2026-11-27T16:41:07.888Z",
    "changedAt": "2026-11-26T19:31:14.892Z"
   },
   {
@@ -994,8 +994,8 @@
      "location": "B01-2 初級沉澱池",
      "item": "氫離子濃度指數",
      "date": "1151128",
-     "time": "0030",
-     "value": "12.70",
+     "time": "0035",
+     "value": "12.69",
      "standard": "----",
      "unit": "---",
      "status": "超限值",
@@ -1008,8 +1008,8 @@
      "location": "B01-2 初級沉澱池",
      "item": "導電度",
      "date": "1151128",
-     "time": "0030",
-     "value": "801996.84",
+     "time": "0035",
+     "value": "999999.00",
      "standard": "----",
      "unit": "μmho/cm",
      "status": "超限值",
@@ -1022,8 +1022,8 @@
      "location": "B01-3 最終沉澱池",
      "item": "氫離子濃度指數",
      "date": "1151128",
-     "time": "0030",
-     "value": "12.48",
+     "time": "0035",
+     "value": "12.52",
      "standard": "----",
      "unit": "---",
      "status": "超限值",
@@ -1036,8 +1036,8 @@
      "location": "B01-3 最終沉澱池",
      "item": "導電度",
      "date": "1151128",
-     "time": "0030",
-     "value": "11867.00",
+     "time": "0035",
+     "value": "11875.49",
      "standard": "----",
      "unit": "μmho/cm",
      "status": "超限值",
@@ -1050,8 +1050,8 @@
      "location": "SB01-1回收貯池",
      "item": "氫離子濃度指數",
      "date": "1151128",
-     "time": "0030",
-     "value": "12.32",
+     "time": "0035",
+     "value": "12.44",
      "standard": "----",
      "unit": "---",
      "status": "超限值",
@@ -1064,7 +1064,7 @@
      "location": "SB01-1回收貯池",
      "item": "導電度",
      "date": "1151128",
-     "time": "0030",
+     "time": "0035",
      "value": "0.00",
      "standard": "----",
      "unit": "μmho/cm",
@@ -1076,12 +1076,12 @@
     }
    ],
    "rowCount": 14,
-   "lastDataAt": "2026-11-27T16:30:00.000Z",
+   "lastDataAt": "2026-11-27T16:35:00.000Z",
    "maxDelayMinutes": 0,
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "6 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:39:01.493Z",
+   "checkedAt": "2026-11-27T16:41:10.490Z",
    "changedAt": "2026-11-27T09:39:32.793Z"
   },
   {
@@ -1095,7 +1095,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:39:02.928Z",
+   "checkedAt": "2026-11-27T16:41:12.403Z",
    "changedAt": "2026-11-27T14:09:54.504Z"
   },
   {
@@ -1109,7 +1109,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:39:04.410Z",
+   "checkedAt": "2026-11-27T16:41:14.280Z",
    "changedAt": "2026-11-26T19:31:21.105Z"
   },
   {
@@ -1123,7 +1123,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:39.016Z",
+   "checkedAt": "2026-11-27T16:39:24.782Z",
    "changedAt": "2026-11-24T07:47:49.518Z"
   },
   {
@@ -1137,7 +1137,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:39.769Z",
+   "checkedAt": "2026-11-27T16:39:25.645Z",
    "changedAt": "2026-11-24T07:47:50.291Z"
   },
   {
@@ -1208,7 +1208,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "4 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:37:43.104Z",
+   "checkedAt": "2026-11-27T16:39:29.686Z",
    "changedAt": "2026-11-27T11:08:29.163Z"
   },
   {
@@ -1222,7 +1222,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:43.842Z",
+   "checkedAt": "2026-11-27T16:39:30.546Z",
    "changedAt": "2026-11-24T07:47:54.738Z"
   },
   {
@@ -1231,12 +1231,12 @@
    "company": "甲森牧場",
    "details": [],
    "rowCount": 1,
-   "lastDataAt": "2026-11-27T16:20:00.000Z",
+   "lastDataAt": "2026-11-27T16:25:00.000Z",
    "maxDelayMinutes": 0,
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:44.583Z",
+   "checkedAt": "2026-11-27T16:39:31.399Z",
    "changedAt": "2026-11-24T07:47:55.499Z"
   },
   {
@@ -1250,7 +1250,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:45.319Z",
+   "checkedAt": "2026-11-27T16:39:32.254Z",
    "changedAt": "2026-11-24T07:47:56.267Z"
   },
   {
@@ -1264,7 +1264,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:46.060Z",
+   "checkedAt": "2026-11-27T16:39:33.116Z",
    "changedAt": "2026-11-24T07:47:57.034Z"
   },
   {
@@ -1335,8 +1335,8 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "4 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:37:49.428Z",
-   "changedAt": "2026-11-27T16:37:49.428Z"
+   "checkedAt": "2026-11-27T16:39:37.162Z",
+   "changedAt": "2026-11-27T16:39:37.162Z"
   },
   {
    "region": "yunlin",
@@ -1349,7 +1349,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:50.169Z",
+   "checkedAt": "2026-11-27T16:39:38.024Z",
    "changedAt": "2026-11-26T07:37:29.321Z"
   },
   {
@@ -1363,7 +1363,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:39.560Z",
+   "checkedAt": "2026-11-27T16:39:24.705Z",
    "changedAt": "2026-11-24T07:47:49.649Z"
   },
   {
@@ -1377,7 +1377,7 @@
    "state": "normal",
    "sourceErrorStreak": 0,
    "summary": "正常",
-   "checkedAt": "2026-11-27T16:37:39.358Z",
+   "checkedAt": "2026-11-27T16:39:25.182Z",
    "changedAt": "2026-11-24T07:47:50.004Z"
   },
   {
@@ -1504,8 +1504,8 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "8 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:37:42.091Z",
-   "changedAt": "2026-11-27T16:37:42.091Z"
+   "checkedAt": "2026-11-27T16:39:28.086Z",
+   "changedAt": "2026-11-27T16:39:28.086Z"
   },
   {
    "region": "nantou",
@@ -1533,7 +1533,7 @@
    "state": "abnormal",
    "sourceErrorStreak": 0,
    "summary": "1 筆異常：超限值",
-   "checkedAt": "2026-11-27T16:37:42.811Z",
+   "checkedAt": "2026-11-27T16:39:28.955Z",
    "changedAt": "2026-11-24T07:47:53.582Z"
   }
  ]

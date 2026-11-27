@@ -1,9 +1,9 @@
 [
  {
   "source": "cloud",
-  "at": "2026-11-27T16:39:04.743Z",
+  "at": "2026-11-27T16:41:14.951Z",
   "trigger": "auto",
-  "durationMs": 87284,
+  "durationMs": 112369,
   "watched": 45,
   "abnormal": 12,
   "delayed": 1,
